@@ -2,10 +2,10 @@ package PizzaPazza.controllers;
 
 import PizzaPazza.DTO.PizzaDTO;
 import PizzaPazza.entities.Pizza;
-import PizzaPazza.entities.Topping;
 import PizzaPazza.services.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,18 +26,14 @@ public class PizzaController {
 
     //AGGIUNGE UNA NUOVA PIZZA
     @PostMapping
-    public void addPizza(@RequestBody PizzaDTO pizzaDTO) {
-        List<Topping> toppings = pizzaDTO.getToppings().stream()
-                .map(toppingName -> new Topping(toppingName, 0))
-                .collect(Collectors.toList());
+    public void addPizza(
+            @RequestPart("pizza") PizzaDTO pizzaDTO,
+            @RequestPart("image") MultipartFile image) {
+        List<String> toppingNames = pizzaDTO.getToppings();
+        double pizzaPrice = pizzaDTO.getPrice();
+        Pizza newPizza = new Pizza(pizzaDTO.getName(), toppingNames ,pizzaPrice, false);
 
-        Pizza newPizza = new Pizza(pizzaDTO.getName(), toppings, false);
         menuService.addPizza(newPizza);
     }
 }
 
-//ESEMPIO POSTMAN
-//{
-//        "name": "Pizza Quattro Stagioni",
-//        "toppings": ["Tomato", "Cheese", "Ham", "Mushrooms", "Olives"]
-//        }

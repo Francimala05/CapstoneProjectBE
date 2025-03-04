@@ -1,35 +1,45 @@
 package PizzaPazza.entities;
 
+import jakarta.persistence.*;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
-
+@Setter
 @Getter
+@Entity
+@Table(name= "pizze")
 public class Pizza extends Item {
-	private String name;
 
-	private List<Topping> toppingList;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
+
+
+	private String name;
 	private boolean isXl = false;
 
-	public Pizza(String name, List<Topping> toppingList, boolean isXl) {
-		super(4.3);
+	@ElementCollection
+	private List<String> toppingNames;
+
+	public Pizza(String name, List<String> toppingNames,double price, boolean isXl) {
+		super(price);
 		this.name = name;
-		this.toppingList = toppingList;
 		this.isXl = isXl;
+		this.toppingNames = toppingNames;
 	}
 
 	@Override
 	public double getPrice() {
-		return super.getPrice() + this.getToppingList().stream().mapToDouble(Topping::getPrice).sum();
+		return super.getPrice();
 	}
 
-	@Override
-	public String toString() {
-		return "Pizza{" +
-				"name='" + name + '\'' +
-				", price=" + price +
-				", toppingList=" + toppingList +
-				", isXl=" + isXl +
-				'}';
+	public void setPrice(double price) {
+	}
+
+	public void setImageUrl(String imageName) {
 	}
 }

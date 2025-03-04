@@ -1,5 +1,5 @@
 package PizzaPazza.entities;
 
-public enum State {
+public enum StatoOrdine {
 	IN_CORSO, PRONTO, SERVITO
 }

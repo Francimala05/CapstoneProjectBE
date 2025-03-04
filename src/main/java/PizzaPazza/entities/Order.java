@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Order {
 	private int numeroOrdine;
-	private State state;
+	private StatoOrdine state;
 	private int numCoperti;
 	private LocalTime oraAcquisizione;
 	private List<Item> orderedProducts;
@@ -18,7 +18,7 @@ public class Order {
 		if (table.getNumMaxCoperti() <= numCoperti)
 			throw new RuntimeException("Numero coperti maggiore di numero massimo posti sul tavolo!");
 		this.numeroOrdine = rndm.nextInt(1000, 100000);
-		this.state = State.IN_CORSO;
+		this.state = StatoOrdine.IN_CORSO;
 		this.numCoperti = numCoperti;
 		this.oraAcquisizione = LocalTime.now();
 		this.orderedProducts = new ArrayList<>();

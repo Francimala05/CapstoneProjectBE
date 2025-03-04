@@ -10,5 +10,6 @@ import java.util.List;
 public class PizzaDTO {
     private String name;
     private List<String> toppings;
-
+    private double price;
+    private String imageUrl;
 }

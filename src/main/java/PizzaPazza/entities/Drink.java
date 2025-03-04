@@ -13,12 +13,4 @@ public class Drink extends Item {
 		this.name = name;
 	}
 
-	@Override
-	public String toString() {
-		return "Drink{" +
-				"name='" + name + '\'' +
-				", calories=" +
-				", price=" + price +
-				'}';
-	}
 }
