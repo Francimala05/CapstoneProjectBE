@@ -12,15 +12,10 @@ public class Pizza extends Item {
 	private boolean isXl = false;
 
 	public Pizza(String name, List<Topping> toppingList, boolean isXl) {
-		super(700, 4.3);
+		super(4.3);
 		this.name = name;
 		this.toppingList = toppingList;
 		this.isXl = isXl;
-	}
-
-	@Override
-	public int getCalories() {
-		return super.getCalories() + this.getToppingList().stream().mapToInt(Topping::getCalories).sum();
 	}
 
 	@Override
@@ -32,7 +27,6 @@ public class Pizza extends Item {
 	public String toString() {
 		return "Pizza{" +
 				"name='" + name + '\'' +
-				", calories=" + calories +
 				", price=" + price +
 				", toppingList=" + toppingList +
 				", isXl=" + isXl +

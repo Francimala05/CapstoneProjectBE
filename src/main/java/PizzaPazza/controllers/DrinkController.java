@@ -1,0 +1,21 @@
+package PizzaPazza.controllers;
+
+import PizzaPazza.entities.Drink;
+import PizzaPazza.entities.Menu;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+public class DrinkController {
+
+    @Autowired
+    private Menu menu;
+
+    @GetMapping("/api/drinks")
+    public List<Drink> getDrinks() {
+        return menu.getDrinkList();
+    }
+}

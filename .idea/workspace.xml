@@ -4,9 +4,52 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/CapstoneProjectBE.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+    <list default="true" id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="Progetto iniziale">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/PizzaDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/DrinkController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/PizzaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/ToppingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/MenuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/OrdersRunner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/AppConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Drink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Drink.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Pizza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Topping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Topping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PizzaPazza/Esercizio30102023ApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PizzaPazza/PizzaPazzaApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/AppConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/AppConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Drink.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Drink.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Pizza.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Pizza.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Table.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Table.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Topping.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Topping.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D1/U5D1Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D1/entities/AppConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D1/entities/Drink.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D1/entities/Item.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D1/entities/Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D1/entities/Pizza.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D1/entities/Topping.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D2/OrdersRunner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D2/U5D2Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D2/entities/AppConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D2/entities/Drink.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D2/entities/Item.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D2/entities/Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D2/entities/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D2/entities/Pizza.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D2/entities/State.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D2/entities/Table.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epicode/U5D2/entities/Topping.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/epicode/U5D1/Esercizio30102023ApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/epicode/U5D2/Esercizio30102023ApplicationTests.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,13 +93,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/com/epicode/U5D2/OrdersRunner.java" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -73,13 +109,16 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.PizzaPazzaApplication.executor": "Run",
     "Application.PizzeriaApplication.executor": "Run",
+    "JUnit.PizzaPazzaTests.executor": "Run",
+    "Maven.PizzaPazza [clean,-DforkCount=0...].executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Fase-1",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Hp/Documents/GitHub/CapstoneProjectBE",
-    "project.structure.last.edited": "SDKs",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager"
@@ -101,6 +140,19 @@
       <option name="presentableId" value="Default" />
       <updated>1741080956961</updated>
     </task>
+    <task id="LOCAL-00001" summary="Progetto iniziale">
+      <option name="closed" value="true" />
+      <created>1741088122060</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1741088122060</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Progetto iniziale" />
+    <option name="LAST_COMMIT_MESSAGE" value="Progetto iniziale" />
   </component>
 </project>

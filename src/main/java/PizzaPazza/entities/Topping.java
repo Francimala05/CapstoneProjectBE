@@ -9,8 +9,8 @@ import lombok.Setter;
 public class Topping extends Item {
 	private String name;
 
-	public Topping(String name, int calories, double price) {
-		super(calories, price);
+	public Topping(String name,double price) {
+		super(price);
 		this.name = name;
 	}
 
@@ -18,7 +18,6 @@ public class Topping extends Item {
 	public String toString() {
 		return "Topping{" +
 				"name='" + name + '\'' +
-				", calories=" + calories +
 				", price=" + price +
 				'}';
 	}
