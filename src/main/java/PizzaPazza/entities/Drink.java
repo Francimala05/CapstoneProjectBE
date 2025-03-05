@@ -14,12 +14,16 @@ public class Drink{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
 	private String name;
+	private String formato;
 	private double price;
 
-	public Drink(String name,double price) {
+	public Drink() {
+	}
+
+	public Drink(String name, String formato, double price) {
 		this.name = name;
+		this.formato=formato;
 		this.price=price;
 	}
 

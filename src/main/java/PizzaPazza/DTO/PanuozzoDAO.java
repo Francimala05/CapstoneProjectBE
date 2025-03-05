@@ -11,4 +11,5 @@ public class PanuozzoDAO {
     private String name;
     private List<String> toppings;
     private double price;
+    private boolean intero = true;
 }

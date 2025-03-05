@@ -29,8 +29,9 @@ public class DrinkController {
     @PostMapping
     public ResponseEntity<String> addDrink(@RequestBody DrinkDAO drinkDAO) {
         try {
+            String drinkFormato = drinkDAO.getFormato();
             double drinkPrice = drinkDAO.getPrice();
-            Drink newDrink = new Drink(drinkDAO.getName(), drinkPrice);
+            Drink newDrink = new Drink(drinkDAO.getName(),drinkFormato, drinkPrice);
             menuService.addDrink(newDrink);
             return ResponseEntity.ok("Bibita aggiunta con successo!");
         } catch (Exception e) {

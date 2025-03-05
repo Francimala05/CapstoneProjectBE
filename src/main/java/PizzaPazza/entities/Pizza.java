@@ -18,18 +18,20 @@ private Long id;
 
 
 	private String name;
-	private boolean isXl = false;
 
 	@Column(name = "topping_name")
 	private String toppingNames;
 
 	private double price;
 
-	public Pizza(String name, List<String> toppingNames, double price, boolean isXl) {
+	public Pizza() {
+	}
+
+	public Pizza(String name, List<String> toppingNames, double price) {
 		this.name = name;
-		this.isXl = isXl;
 		this.toppingNames = String.join(",",toppingNames);
 		this.price= price;
+
 	}
 
 

@@ -21,6 +21,9 @@ public class Fritto {
     private String name;
     private double price;
 
+    public Fritto() {
+    }
+
     public Fritto(String name, double price) {
         this.name = name;
         this.price= price;

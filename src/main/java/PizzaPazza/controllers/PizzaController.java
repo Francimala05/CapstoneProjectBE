@@ -21,16 +21,26 @@ public class PizzaController {
         return menuService.getPizzaList();
     }
 
-    // AGGIUNGE UNA NUOVA PIZZA
+    // AGGIUNGE UNA NUOVA PIZZA SINGOLA, MEZZOCHILO, CHILO
     @PostMapping
     public ResponseEntity<String> addPizza(@RequestBody PizzaDTO pizzaDTO) {
         try {
             List<String> toppingNames = pizzaDTO.getToppings();
             double pizzaPrice = pizzaDTO.getPrice();
+            double mezzoChiloPrice = pizzaDTO.getMezzoChiloPrice();
+            double chiloPrice = pizzaDTO.getChiloPrice();
 
-            Pizza newPizza = new Pizza(pizzaDTO.getName(), toppingNames, pizzaPrice, false);
+            Pizza newPizza = new Pizza(pizzaDTO.getName()+ " Singola", toppingNames, pizzaPrice);
             menuService.addPizza(newPizza);
-            return ResponseEntity.ok("Pizza aggiunta con successo!");
+
+            Pizza mezzoChiloPizza = new Pizza(pizzaDTO.getName()+ " MezzoChilo", toppingNames, mezzoChiloPrice);
+            menuService.addPizza(mezzoChiloPizza);
+
+            Pizza chiloPizza = new Pizza(pizzaDTO.getName()+ " Chilo", toppingNames, chiloPrice);
+            menuService.addPizza(chiloPizza);
+
+
+            return ResponseEntity.ok("Pizza  singola, mezzo chilo e chilo aggiunte con successo!");
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Errore: " + e.getMessage());
         }

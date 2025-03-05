@@ -26,6 +26,8 @@ public class Panuozzo {
 
     private double price;
 
+    public Panuozzo() {
+    }
 
     public Panuozzo(String name, List<String> toppingNames, double price, boolean intero) {
         this.name = name;

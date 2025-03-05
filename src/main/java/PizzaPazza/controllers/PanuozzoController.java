@@ -23,15 +23,19 @@ public class PanuozzoController {
     }
 
 
-    //AGGIUNGE UN NUOVO PANUOZZO
+    //AGGIUNGE UN NUOVO PANUOZZO INTERO E MEZZO
     @PostMapping
     public ResponseEntity<String> addPanuozzo(@RequestBody PanuozzoDAO panuozzoDAO) {
         try {
             List<String> toppingNames = panuozzoDAO.getToppings();
             double panuozzoPrice = panuozzoDAO.getPrice();
 
-            Panuozzo newPanuozzo = new Panuozzo(panuozzoDAO.getName(), toppingNames, panuozzoPrice, false);
+            Panuozzo newPanuozzo = new Panuozzo(panuozzoDAO.getName(), toppingNames, panuozzoPrice, true);
             menuService.addPanuozzo(newPanuozzo);
+
+            Panuozzo mezzoPanuozzo = new Panuozzo(panuozzoDAO.getName(), toppingNames, panuozzoPrice / 2, false);
+            menuService.addPanuozzo(mezzoPanuozzo);
+
             return ResponseEntity.ok("Panuozzo aggiunto con successo!");
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Errore: " + e.getMessage());

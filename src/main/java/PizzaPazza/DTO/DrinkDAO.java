@@ -6,5 +6,7 @@ import lombok.Setter;
 @Setter
 public class DrinkDAO {
     private String name;
+    private String formato;
     private double price;
+
 }
