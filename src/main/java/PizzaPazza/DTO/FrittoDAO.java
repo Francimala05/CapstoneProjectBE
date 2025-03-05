@@ -3,12 +3,9 @@ package PizzaPazza.DTO;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
-public class PizzaDTO {
+public class FrittoDAO {
     private String name;
-    private List<String> toppings;
     private double price;
 }

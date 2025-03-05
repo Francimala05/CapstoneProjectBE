@@ -14,6 +14,6 @@ import java.util.List;
 public class Menu {
 	private List<Pizza> pizzaList;
 	private List<Drink> drinkList;
-
-
+	private List<Panuozzo> panuozzoList;
+	private List<Fritto> frittoList;
 }

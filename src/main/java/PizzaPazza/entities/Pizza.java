@@ -2,9 +2,7 @@ package PizzaPazza.entities;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
@@ -12,7 +10,7 @@ import java.util.List;
 @Getter
 @Entity
 @Table(name= "pizze")
-public class Pizza extends Item {
+public class Pizza{
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,24 +20,18 @@ private Long id;
 	private String name;
 	private boolean isXl = false;
 
-	@ElementCollection
-	private List<String> toppingNames;
+	@Column(name = "topping_name")
+	private String toppingNames;
 
-	public Pizza(String name, List<String> toppingNames,double price, boolean isXl) {
-		super(price);
+	private double price;
+
+	public Pizza(String name, List<String> toppingNames, double price, boolean isXl) {
 		this.name = name;
 		this.isXl = isXl;
-		this.toppingNames = toppingNames;
+		this.toppingNames = String.join(",",toppingNames);
+		this.price= price;
 	}
 
-	@Override
-	public double getPrice() {
-		return super.getPrice();
-	}
 
-	public void setPrice(double price) {
-	}
 
-	public void setImageUrl(String imageName) {
-	}
 }

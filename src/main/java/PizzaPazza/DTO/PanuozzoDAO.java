@@ -7,7 +7,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class PizzaDTO {
+public class PanuozzoDAO {
     private String name;
     private List<String> toppings;
     private double price;

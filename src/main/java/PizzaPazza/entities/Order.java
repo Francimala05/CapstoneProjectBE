@@ -1,5 +1,7 @@
 package PizzaPazza.entities;
 
+import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
+
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +12,6 @@ public class Order {
 	private StatoOrdine state;
 	private int numCoperti;
 	private LocalTime oraAcquisizione;
-	private List<Item> orderedProducts;
 	private Table table;
 
 	public Order(int numCoperti, Table table) {
@@ -21,17 +22,10 @@ public class Order {
 		this.state = StatoOrdine.IN_CORSO;
 		this.numCoperti = numCoperti;
 		this.oraAcquisizione = LocalTime.now();
-		this.orderedProducts = new ArrayList<>();
 		this.table = table;
 	}
 
-	public void addItem(Item item) {
-		this.orderedProducts.add(item);
-	}
 
-	public double getTotal() {
-		return this.orderedProducts.stream().mapToDouble(Item::getPrice).sum() + (this.table.getCostoCoperto() * this.numCoperti);
-	}
 
 	public void print() {
 		System.out.println("id ordine--> " + this.numeroOrdine);
@@ -40,8 +34,7 @@ public class Order {
 		System.out.println("ora acquisizione--> " + this.oraAcquisizione);
 		System.out.println("numero tavolo--> " + this.table.getNumTable());
 		System.out.println("Lista: ");
-		this.orderedProducts.forEach(System.out::println);
-		System.out.println("totale--> " + this.getTotal());
+		System.out.println("totale--> ");
 
 	}
 }

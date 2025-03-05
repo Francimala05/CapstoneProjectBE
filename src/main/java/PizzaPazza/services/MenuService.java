@@ -1,13 +1,15 @@
 package PizzaPazza.services;
 
+import PizzaPazza.entities.Drink;
+import PizzaPazza.entities.Fritto;
+import PizzaPazza.entities.Panuozzo;
 import PizzaPazza.entities.Pizza;
+import PizzaPazza.repositories.DrinkRepository;
+import PizzaPazza.repositories.FrittoRepository;
+import PizzaPazza.repositories.PanuozzoRepository;
 import PizzaPazza.repositories.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -15,9 +17,6 @@ public class MenuService {
 
     @Autowired
     private PizzaRepository pizzaRepository;
-
-    @Value("${pizza.image.directory}")
-    private String imageDirectory;
 
     public List<Pizza> getPizzaList() {
         return pizzaRepository.findAll();
@@ -27,17 +26,38 @@ public class MenuService {
         pizzaRepository.save(pizza);
     }
 
-    public String saveImage(MultipartFile image) {
-        String imageName = image.getOriginalFilename();
+    @Autowired
+    private DrinkRepository drinkRepository;
 
-        File imageFile = new File(imageDirectory + File.separator + imageName);
-
-        try {
-            image.transferTo(imageFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Errore nel salvataggio dell'immagine");
-        }
-        return imageName;
+    public List<Drink> getDrinkList() {
+        return drinkRepository.findAll();
     }
+
+    public void addDrink(Drink drink) {
+        drinkRepository.save(drink);
+    }
+
+    @Autowired
+    private PanuozzoRepository panuozzoRepository;
+
+    public List<Panuozzo> getPanuozzoList() {
+        return panuozzoRepository.findAll();
+    }
+
+    public void addPanuozzo(Panuozzo panuozzo) {
+        panuozzoRepository.save(panuozzo);
+    }
+
+
+    @Autowired
+    private FrittoRepository frittoRepository;
+
+    public List<Fritto> getFrittoList() {
+        return frittoRepository.findAll();
+    }
+
+    public void addFritto(Fritto fritto) {
+        frittoRepository.save(fritto);
+    }
+
 }
