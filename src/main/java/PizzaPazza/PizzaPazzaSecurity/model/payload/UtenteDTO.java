@@ -17,11 +17,11 @@ public class UtenteDTO {
     private String cognome;
 
     @NotBlank(message = "Il campo username è obbligatorio")
-    @Size(min=3, max=20, message = "Il campo username deve contenere minimo 3 caratteri e massimo 20 caratteri")
+    @Size(min=3, max=20, message = " Il campo username deve contenere minimo 3 caratteri e massimo 20 caratteri")
     private String username;
 
     @NotBlank(message = "Il campo password è obbligatorio")
-    @Size(min=7, max=20, message = "Il campo username deve contenere minimo 7 caratteri e massimo 20 caratteri")
+    @Size(min=7, max=20, message = "Il campo password deve contenere minimo 7 caratteri e massimo 20 caratteri")
     private String password;
 
     @NotBlank(message = "Il campo email è obbligatorio")

@@ -1,6 +1,7 @@
 package PizzaPazza.PizzaPazzaSecurity.model.entities;
 
 
+import PizzaPazza.PizzaPazzaSecurity.Ruolo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,5 +31,6 @@ public class Utente {
     private String email;
 
     @Column(nullable = false)
-    private String ruolo;
+    @Enumerated(EnumType.STRING)
+    private Ruolo ruolo;
 }
