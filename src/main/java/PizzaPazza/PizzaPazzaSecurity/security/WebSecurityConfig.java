@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -22,28 +21,37 @@ public class WebSecurityConfig {
     @Autowired
     JwtAuthorizationFilter filtroAutorizzazione;
 
+    @Autowired
+    CustomCorsConfigurationSource corsConfigurationSource;
+
     @Bean
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
+
+
+
+
     @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-
-        httpSecurity.cors(AbstractHttpConfigurer::disable).csrf(AbstractHttpConfigurer::disable);
-
-        // Impostazione autorizzazioni sugli accessi
-        httpSecurity.authorizeHttpRequests(authorize -> authorize
-                                .requestMatchers("/utente/insert").permitAll()
-                                .requestMatchers("/utente/login","/api/**").permitAll()
-                                .requestMatchers("/utente/auth/**").hasAuthority("USER")
-                                .requestMatchers("/utente/admin/**").hasAuthority("ADMIN"))
-                        .sessionManagement(custom->custom.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .cors(cors -> cors.configurationSource(corsConfigurationSource.corsConfigurationSource()))
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/utente/insert").permitAll()
+                        .requestMatchers("/utente/login", "/api/**").permitAll()
+                        .requestMatchers("/utente/auth/**").hasAuthority("USER")
+                        .requestMatchers("/utente/admin/**").hasAuthority("ADMIN")
+                )
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                )
                 .addFilterBefore(filtroAutorizzazione, UsernamePasswordAuthenticationFilter.class);
 
-        return httpSecurity.build();
-
+        return http.build();
     }
+
     @Bean
     public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
         AuthenticationManagerBuilder authenticationManagerBuilder =
