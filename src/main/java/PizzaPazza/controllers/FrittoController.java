@@ -1,10 +1,6 @@
 package PizzaPazza.controllers;
-
-
-import PizzaPazza.DTO.FrittoDAO;
-import PizzaPazza.DTO.PanuozzoDAO;
+import PizzaPazza.DTO.FrittoDTO;
 import PizzaPazza.entities.Fritto;
-import PizzaPazza.entities.Panuozzo;
 import PizzaPazza.services.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,11 +22,11 @@ public class FrittoController {
 
     //AGGIUNGE UN NUOVO FRITTO
     @PostMapping
-    public ResponseEntity<String> addFritto(@RequestBody FrittoDAO frittoDAO) {
+    public ResponseEntity<String> addFritto(@RequestBody FrittoDTO frittoDTO) {
         try {
-            double frittoPrice = frittoDAO.getPrice();
+            double frittoPrice = frittoDTO.getPrice();
 
-            Fritto newFritto = new Fritto(frittoDAO.getName(),frittoPrice);
+            Fritto newFritto = new Fritto(frittoDTO.getName(),frittoPrice);
             menuService.addFritto(newFritto);
             return ResponseEntity.ok("Fritto aggiunto con successo!");
         } catch (Exception e) {

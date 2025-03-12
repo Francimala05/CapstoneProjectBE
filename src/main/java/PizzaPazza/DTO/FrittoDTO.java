@@ -1,12 +1,11 @@
 package PizzaPazza.DTO;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class DrinkDAO {
+public class FrittoDTO {
     private String name;
-    private String formato;
     private double price;
-
 }

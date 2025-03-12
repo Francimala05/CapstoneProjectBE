@@ -4,15 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="10/03 10.30&#10;Security Finita">
-      <change afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/security/CustomCorsConfigurationSource.java" afterDir="false" />
+    <list default="true" id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="11/03 10.30&#10;Aggiunta di Cors">
+      <change afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/PrenotazioneDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/PrenotazioneController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/repositories/PrenotazioneRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/PrenotazioneService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/controller/UtenteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/controller/UtenteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/security/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/controller/UtenteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/controller/UtenteController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/security/JwtUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/security/JwtUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/DrinkDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/DrinkDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/FrittoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/FrittoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/PanuozzoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/PanuozzoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/security/CustomCorsConfigurationSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/security/CustomCorsConfigurationSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/DrinkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/DrinkController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/FrittoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/FrittoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/PanuozzoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/PanuozzoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/StatoOrdine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Prenotazione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/security/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/security/WebSecurityConfig.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +42,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Exception" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -176,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741599175550</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="11/03 10.30&#10;Aggiunta di Cors">
+      <option name="closed" value="true" />
+      <created>1741684767588</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1741684767588</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -186,6 +202,8 @@
     <MESSAGE value="05/03 13.00&#10;Aggiunta metodi inserimento nel menu" />
     <MESSAGE value="05/03 21.00&#10;Aggiunta metodi security" />
     <MESSAGE value="10/03 10.30&#10;Security Finita" />
-    <option name="LAST_COMMIT_MESSAGE" value="10/03 10.30&#10;Security Finita" />
+    <MESSAGE value="10/03 10.30&#10;Aggiunta di Cors" />
+    <MESSAGE value="11/03 10.30&#10;Aggiunta di Cors" />
+    <option name="LAST_COMMIT_MESSAGE" value="11/03 10.30&#10;Aggiunta di Cors" />
   </component>
 </project>

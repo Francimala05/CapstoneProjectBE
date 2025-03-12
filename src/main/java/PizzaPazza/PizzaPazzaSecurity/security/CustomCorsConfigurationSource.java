@@ -10,7 +10,7 @@ public class CustomCorsConfigurationSource {
     @Bean
     public UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfig = new CorsConfiguration();
-        corsConfig.addAllowedOrigin("*");
+        corsConfig.addAllowedOrigin("http://localhost:8080");
         corsConfig.addAllowedMethod("*");
         corsConfig.addAllowedHeader("*");
         corsConfig.setAllowCredentials(true);

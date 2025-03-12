@@ -1,15 +1,12 @@
 package PizzaPazza.DTO;
-
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
-public class PanuozzoDAO {
+public class DrinkDTO {
     private String name;
-    private List<String> toppings;
+    private String formato;
     private double price;
-    private boolean intero = true;
+
 }

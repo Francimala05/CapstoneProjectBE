@@ -1,10 +1,7 @@
 package PizzaPazza.controllers;
 
-import PizzaPazza.DTO.DrinkDAO;
-import PizzaPazza.DTO.PizzaDTO;
+import PizzaPazza.DTO.DrinkDTO;
 import PizzaPazza.entities.Drink;
-import PizzaPazza.entities.Menu;
-import PizzaPazza.entities.Pizza;
 import PizzaPazza.services.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,11 +24,11 @@ public class DrinkController {
 
     // AGGIUNGE UNA NUOVA BIBITA
     @PostMapping
-    public ResponseEntity<String> addDrink(@RequestBody DrinkDAO drinkDAO) {
+    public ResponseEntity<String> addDrink(@RequestBody DrinkDTO drinkDTO) {
         try {
-            String drinkFormato = drinkDAO.getFormato();
-            double drinkPrice = drinkDAO.getPrice();
-            Drink newDrink = new Drink(drinkDAO.getName(),drinkFormato, drinkPrice);
+            String drinkFormato = drinkDTO.getFormato();
+            double drinkPrice = drinkDTO.getPrice();
+            Drink newDrink = new Drink(drinkDTO.getName(),drinkFormato, drinkPrice);
             menuService.addDrink(newDrink);
             return ResponseEntity.ok("Bibita aggiunta con successo!");
         } catch (Exception e) {
