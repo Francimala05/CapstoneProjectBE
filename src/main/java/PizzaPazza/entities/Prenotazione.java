@@ -1,10 +1,13 @@
 package PizzaPazza.entities;
 
 import PizzaPazza.PizzaPazzaSecurity.model.entities.Utente;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @Table(name="prenotazioni")
@@ -24,7 +27,10 @@ public class Prenotazione {
 	private Utente utente;
 
 	@Column(nullable = false)
-	private LocalDateTime dataOraPrenotazione;
+	private LocalDate data;
+
+	@Column(nullable = false)
+	private LocalTime orario;
 
 	@Column(nullable = false)
 	private int numeroPersone;

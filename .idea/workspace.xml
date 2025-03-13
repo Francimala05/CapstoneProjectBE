@@ -4,23 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="11/03 10.30&#10;Aggiunta di Cors">
-      <change afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/PrenotazioneDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/PrenotazioneController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/repositories/PrenotazioneRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/PrenotazioneService.java" afterDir="false" />
+    <list default="true" id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="12/03 17.00&#10;Aggiunta di Prenotazione Tavoli">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/DrinkDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/DrinkDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/FrittoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/FrittoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/PanuozzoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/PanuozzoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/security/CustomCorsConfigurationSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/security/CustomCorsConfigurationSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/DrinkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/DrinkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/FrittoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/FrittoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/PanuozzoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/PanuozzoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Order.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/StatoOrdine.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Prenotazione.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/security/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/security/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/PrenotazioneDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/PrenotazioneDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/PrenotazioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/PrenotazioneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Prenotazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Prenotazione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/repositories/PrenotazioneRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/repositories/PrenotazioneRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/PrenotazioneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/PrenotazioneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/DTO/DrinkDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/DTO/FrittoDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/DTO/PanuozzoDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/DrinkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/DrinkController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/FrittoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/FrittoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/PanuozzoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/PanuozzoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/StatoOrdine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Table.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741684767588</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="12/03 17.00&#10;Aggiunta di Prenotazione Tavoli">
+      <option name="closed" value="true" />
+      <created>1741794170876</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1741794170876</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -204,6 +211,7 @@
     <MESSAGE value="10/03 10.30&#10;Security Finita" />
     <MESSAGE value="10/03 10.30&#10;Aggiunta di Cors" />
     <MESSAGE value="11/03 10.30&#10;Aggiunta di Cors" />
-    <option name="LAST_COMMIT_MESSAGE" value="11/03 10.30&#10;Aggiunta di Cors" />
+    <MESSAGE value="12/03 17.00&#10;Aggiunta di Prenotazione Tavoli" />
+    <option name="LAST_COMMIT_MESSAGE" value="12/03 17.00&#10;Aggiunta di Prenotazione Tavoli" />
   </component>
 </project>

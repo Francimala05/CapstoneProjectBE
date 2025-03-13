@@ -26,6 +26,7 @@ public class PrenotazioneController {
     //AGGIUNGERE UNA NUOVA PRENOTAZIONE
     @PostMapping
     public ResponseEntity<String> aggiungiPrenotazione(@RequestBody PrenotazioneDTO prenotazioneDTO) {
+
         boolean prenotazioneConfermata = prenotazioneService.aggiungiPrenotazione(prenotazioneDTO);
 
         if (prenotazioneConfermata) {
