@@ -13,4 +13,5 @@ public class PizzaDTO {
     private double price;
     private double mezzoChiloPrice;
     private double chiloPrice;
+    private String imageUrl;
 }

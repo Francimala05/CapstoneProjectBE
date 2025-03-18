@@ -10,6 +10,7 @@ import java.util.List;
 public class PanuozzoDTO {
     private String name;
     private List<String> toppings;
-    private double price;
-    private boolean intero = true;
+    private double interoPrice;
+    private double mezzoPrice;
+    private String imageUrl;
 }

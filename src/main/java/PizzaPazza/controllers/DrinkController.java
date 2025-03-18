@@ -16,9 +16,14 @@ public class DrinkController {
     @Autowired
     private MenuService menuService;
 
-    // RESTITUISCE LA LISTA DELLE BIBITE
+    // RESTITUISCE LA LISTA DELLE BIBITE, FILTRATE PER NOME SE SPECIFICATO
     @GetMapping
-    public List<Drink> getDrinks() {
+    public List<Drink> getDrinks(@RequestParam(required = false) String name) {
+        if (name != null && !name.isEmpty()) {
+            // Se viene fornito il nome, filtra per nome
+            return menuService.getDrinkListByName(name);
+        }
+        // Altrimenti restituisce tutte le bibite
         return menuService.getDrinkList();
     }
 
@@ -28,7 +33,7 @@ public class DrinkController {
         try {
             String drinkFormato = drinkDTO.getFormato();
             double drinkPrice = drinkDTO.getPrice();
-            Drink newDrink = new Drink(drinkDTO.getName(),drinkFormato, drinkPrice);
+            Drink newDrink = new Drink(drinkDTO.getName(), drinkFormato, drinkPrice);
             menuService.addDrink(newDrink);
             return ResponseEntity.ok("Bibita aggiunta con successo!");
         } catch (Exception e) {
@@ -36,4 +41,14 @@ public class DrinkController {
         }
     }
 
+    // ELIMINA UNA BIBITA
+    @DeleteMapping
+    public ResponseEntity<String> deleteDrinkByName(@RequestParam String name) {
+        // Prova a eliminare la bibita
+        if (menuService.deleteDrinkByName(name)) {
+            return ResponseEntity.ok("Drink con nome " + name + " eliminato con successo.");
+        } else {
+            return ResponseEntity.status(404).body("Drink con nome " + name + " non trovato.");
+        }
+    }
 }

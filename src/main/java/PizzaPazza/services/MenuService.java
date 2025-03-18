@@ -33,6 +33,10 @@ public class MenuService {
         return drinkRepository.findAll();
     }
 
+    public List<Drink> getDrinkListByName(String name) {
+        return drinkRepository.findByNameIgnoreCase(name);  // Ignora maiuscole/minuscole
+    }
+
     public void addDrink(Drink drink) {
         drinkRepository.save(drink);
     }
@@ -59,5 +63,32 @@ public class MenuService {
     public void addFritto(Fritto fritto) {
         frittoRepository.save(fritto);
     }
+    public void deletePizzasByName(String name) {
+        List<Pizza> pizzasToDelete = pizzaRepository.findByName(name);
+        if (pizzasToDelete != null && !pizzasToDelete.isEmpty()) {
+            pizzaRepository.deleteAll(pizzasToDelete);
+        }
+    }
+
+    public void updatePizza(Pizza pizza) {
+        pizzaRepository.save(pizza);
+    }
+
+    public void deletePanuozzoByName(String name) {
+        List<Panuozzo> panuozziToDelete = panuozzoRepository.findByName(name);
+        if (panuozziToDelete != null && !panuozziToDelete.isEmpty()) {
+            panuozzoRepository.deleteAll(panuozziToDelete);
+        }
+    }
+
+    public boolean deleteDrinkByName(String name) {
+        List<Drink> drinksToDelete = drinkRepository.findByNameIgnoreCase(name);
+        if (!drinksToDelete.isEmpty()) {
+            drinkRepository.deleteAll(drinksToDelete);
+            return true;
+        }
+        return false;
+    }
+
 
 }

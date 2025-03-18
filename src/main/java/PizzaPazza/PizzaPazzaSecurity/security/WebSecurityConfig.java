@@ -43,6 +43,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/utente/login", "/api/**").permitAll()
                         .requestMatchers("/utente/auth/**").hasAuthority("USER")
                         .requestMatchers("/utente/admin/**").hasAuthority("ADMIN")
+                        .requestMatchers("/images/**").permitAll()
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
