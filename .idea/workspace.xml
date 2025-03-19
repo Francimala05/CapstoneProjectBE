@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="18/03 13.00&#10;Comunicazione Menu FE migliorata">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/security/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/security/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/DrinkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/DrinkController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Panuozzo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Panuozzo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/repositories/DrinkRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/repositories/DrinkRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/repositories/PanuozzoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/repositories/PanuozzoRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/repositories/PizzaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/repositories/PizzaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/services/MenuService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/services/MenuService.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Exception" />
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Francimala05&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Francimala05/CapstoneProjectBE.git&quot;,
+    &quot;accountId&quot;: &quot;87c3409a-67d5-49e5-94d4-cf4ee75f31da&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/epicode/U5D2/OrdersRunner.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2tqYDzfDIhR7f6EUdAW5gLrsoKO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.PizzaPazzaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PizzeriaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PizzaPazzaApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PizzaPazzaTests.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.PizzaPazza [clean,-DforkCount=0...].executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Fase-1&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Hp/Desktop/Build Week/BW5/BuildWeekFinal-BE-EpicEnergyServices&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Hp\Documents\GitHub\CapstoneProjectBE\pizzeria\pizzeria\src\main\java\com\PizzaPazza" />
+      <recent name="C:\Users\Hp\Documents\GitHub\CapstoneProjectBE\pizzeria\pizzeria\src\main" />
+      <recent name="C:\Users\Hp\Documents\GitHub\CapstoneProjectBE\pizzeria\pizzeria" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="PizzaPazzaApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PizzaPazza.PizzaPazzaApplication" />
+      <module name="PizzeriaPizzaPazza" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="PizzaPazza.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.PizzaPazzaApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="" />
+      <created>1741080956961</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741080956961</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Progetto iniziale">
+      <option name="closed" value="true" />
+      <created>1741088122060</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1741088122060</updated>
+    </task>
+    <task id="LOCAL-00002" summary="04/03">
+      <option name="closed" value="true" />
+      <created>1741106422209</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1741106422209</updated>
+    </task>
+    <task id="LOCAL-00003" summary="04/03 23.00">
+      <option name="closed" value="true" />
+      <created>1741130273636</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1741130273636</updated>
+    </task>
+    <task id="LOCAL-00004" summary="05/03 13.00&#10;Aggiunta metodi inserimento nel menu">
+      <option name="closed" value="true" />
+      <created>1741175461732</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1741175461733</updated>
+    </task>
+    <task id="LOCAL-00005" summary="05/03 21.00&#10;Aggiunta metodi security">
+      <option name="closed" value="true" />
+      <created>1741204209447</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1741204209447</updated>
+    </task>
+    <task id="LOCAL-00006" summary="10/03 10.30&#10;Security Finita">
+      <option name="closed" value="true" />
+      <created>1741599175549</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1741599175550</updated>
+    </task>
+    <task id="LOCAL-00007" summary="11/03 10.30&#10;Aggiunta di Cors">
+      <option name="closed" value="true" />
+      <created>1741684767588</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1741684767588</updated>
+    </task>
+    <task id="LOCAL-00008" summary="12/03 17.00&#10;Aggiunta di Prenotazione Tavoli">
+      <option name="closed" value="true" />
+      <created>1741794170876</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1741794170876</updated>
+    </task>
+    <task id="LOCAL-00009" summary="13/03 16.00&#10;Gestione migliorata prenotazioni">
+      <option name="closed" value="true" />
+      <created>1741879029684</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1741879029684</updated>
+    </task>
+    <task id="LOCAL-00010" summary="18/03 13.00&#10;Comunicazione Menu FE migliorata">
+      <option name="closed" value="true" />
+      <created>1742299426247</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1742299426247</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Progetto iniziale" />
+    <MESSAGE value="04/03" />
+    <MESSAGE value="04/03 23.00" />
+    <MESSAGE value="05/03 13.00&#10;Aggiunta metodi inserimento nel menu" />
+    <MESSAGE value="05/03 21.00&#10;Aggiunta metodi security" />
+    <MESSAGE value="10/03 10.30&#10;Security Finita" />
+    <MESSAGE value="10/03 10.30&#10;Aggiunta di Cors" />
+    <MESSAGE value="11/03 10.30&#10;Aggiunta di Cors" />
+    <MESSAGE value="12/03 17.00&#10;Aggiunta di Prenotazione Tavoli" />
+    <MESSAGE value="13/03 16.00&#10;Gestione migliorata prenotazioni" />
+    <MESSAGE value="18/03 13.00&#10;Comunicazione Menu FE migliorata" />
+    <option name="LAST_COMMIT_MESSAGE" value="18/03 13.00&#10;Comunicazione Menu FE migliorata" />
+  </component>
+</project>
