@@ -1,6 +1,7 @@
 package PizzaPazza.services;
 
 import PizzaPazza.DTO.OrdineAsportoDTO;
+import PizzaPazza.DTO.OrdineDomicilioDTO;
 import PizzaPazza.PizzaPazzaSecurity.model.entities.Utente;
 import PizzaPazza.PizzaPazzaSecurity.repository.UtenteRepository;
 import PizzaPazza.entities.*;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class OrdineAsportoService {
+public class OrdineDomicilioService {
 
     @Autowired
     private PizzaRepository pizzaRepository;
@@ -29,14 +30,13 @@ public class OrdineAsportoService {
     private DrinkRepository drinkRepository;
 
     @Autowired
-    private OrdineAsportoRepository ordineRepository;
+    private OrdineDomicilioRepository ordineRepository;
 
     @Autowired
     private UtenteRepository utenteRepository;
 
     // Metodo per creare un ordine
-    public OrdineAsporto creaOrdine(OrdineAsportoDTO ordineRequest) {
-        // Recupera i prodotti selezionati dal carrello tramite gli ID
+    public OrdineDomicilio creaOrdine(OrdineDomicilioDTO ordineRequest) {
         List<Pizza> pizze = pizzaRepository.findAllById(ordineRequest.getPizzeIds());
         List<Panuozzo> panuozzi = panuozzoRepository.findAllById(ordineRequest.getPanuozziIds());
         List<Fritto> fritti = frittoRepository.findAllById(ordineRequest.getFrittiIds());
@@ -56,10 +56,10 @@ public class OrdineAsportoService {
         }
         Utente utente = utenteOptional.get();
 
-        // Crea l'ordine, associando l'utente recuperato e passando anche il conto
-        OrdineAsporto ordine = new OrdineAsporto(
+
+        OrdineDomicilio ordine = new OrdineDomicilio(
                 pizze, panuozzi, fritti, bibite, ordineRequest.getOrario(), ordineRequest.getData(),
-                ordineRequest.getEsigenzeParticolari(), utente, ordineRequest.getConto()
+                ordineRequest.getTelefono(), ordineRequest.getIndirizzo(), ordineRequest.getEsigenzeParticolari(), utente, ordineRequest.getConto()
         );
 
         // Salva l'ordine nel database

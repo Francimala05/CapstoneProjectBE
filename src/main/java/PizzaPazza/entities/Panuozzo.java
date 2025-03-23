@@ -23,6 +23,13 @@ public class Panuozzo {
 
     private String imageUrl;
 
+    @ManyToOne
+    @JoinColumn(name = "ordine_asporto_id")
+    private OrdineAsporto ordineAsporto;
+
+    @ManyToOne
+    @JoinColumn(name = "ordine_domicilio_id")
+    private OrdineDomicilio ordineDomicilio;
 
     public Panuozzo(String name, double interoPrice, double mezzoPrice, String toppingNames, String imageUrl) {
         this.name = name;

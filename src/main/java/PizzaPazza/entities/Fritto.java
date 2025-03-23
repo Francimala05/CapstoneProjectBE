@@ -21,6 +21,15 @@ public class Fritto {
     private String name;
     private double price;
 
+
+    @ManyToOne
+    @JoinColumn(name = "ordine_asporto_id")
+    private OrdineAsporto ordineAsporto;
+
+    @ManyToOne
+    @JoinColumn(name = "ordine_domicilio_id")
+    private OrdineDomicilio ordineDomicilio;
+
     public Fritto() {
     }
 

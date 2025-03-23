@@ -27,6 +27,16 @@ public class Pizza{
 	private double chiloPrice;
 	private String imageUrl;
 
+	@ManyToOne
+	@JoinColumn(name = "ordine_asporto_id")
+	private OrdineAsporto ordineAsporto;
+
+	@ManyToOne
+	@JoinColumn(name = "ordine_domicilio_id")
+	private OrdineDomicilio ordineDomicilio;
+
+
+
 	public Pizza() {
 	}
 
