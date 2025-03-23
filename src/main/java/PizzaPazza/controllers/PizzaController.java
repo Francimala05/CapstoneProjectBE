@@ -42,6 +42,7 @@ public class PizzaController {
                 .collect(Collectors.groupingBy(pizza -> pizza.getName()))
                 .forEach((nameKey, groupedPizzas) -> {
                     PizzaDTO pizzaDTO = new PizzaDTO();
+                    pizzaDTO.setId(groupedPizzas.get(0).getId());
                     pizzaDTO.setName(nameKey);
 
                     // Trova gli ingredienti (toppings)

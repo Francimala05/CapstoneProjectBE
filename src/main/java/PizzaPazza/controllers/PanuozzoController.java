@@ -35,6 +35,7 @@ public class PanuozzoController {
         List<PanuozzoDTO> panuozzoDTOs = new ArrayList<>();
         panuozzi.forEach(panuozzo -> {
             PanuozzoDTO panuozzoDTO = new PanuozzoDTO();
+            panuozzoDTO.setId(panuozzo.getId());
             panuozzoDTO.setName(panuozzo.getName());
 
             List<String> toppings = Arrays.asList(panuozzo.getToppingNames().split(","));
