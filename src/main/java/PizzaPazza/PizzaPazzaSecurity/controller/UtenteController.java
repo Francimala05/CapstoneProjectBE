@@ -1,6 +1,7 @@
 package PizzaPazza.PizzaPazzaSecurity.controller;
 
 
+import PizzaPazza.PizzaPazzaSecurity.model.entities.Utente;
 import PizzaPazza.PizzaPazzaSecurity.model.exception.DuplicateEmailException;
 import PizzaPazza.PizzaPazzaSecurity.model.exception.DuplicateUsernameException;
 import PizzaPazza.PizzaPazzaSecurity.model.exception.RuoloException;
@@ -16,7 +17,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:8083")
+@CrossOrigin(origins = "http://localhost:8085")
 @RestController
 @RequestMapping("/utente")
 public class UtenteController {
@@ -66,5 +67,16 @@ public class UtenteController {
         }
 
     }
+
+    @GetMapping("/get/{username}")
+    public ResponseEntity<?> getUtente(@PathVariable String username) {
+        Utente utente = service.getUtenteByUsername(username);
+        if (utente != null) {
+            return ResponseEntity.ok(utente);
+        } else {
+            return new ResponseEntity<>("Utente non trovato", HttpStatus.NOT_FOUND);
+        }
+    }
+
 
 }

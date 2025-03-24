@@ -92,16 +92,12 @@ if(principal instanceof User){
 }else{
     username = principal.toString();
 }
-username = ((UserDetails) authentication.getPrincipal()).getUsername();
-
-if(username == null || username.isEmpty()){
-    throw new RuntimeException("Username non valido");
-}
 
       Utente user= utenteRepository.findByUsername(username).orElseThrow(()-> new RuntimeException("Utente non trovato"));
-        List<String> ruoli = authentication.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList());
+
     String jwt = jwtUtil.creaToken(user);
-    return ResponseEntity.ok(jwt);
+        LoginResponse loginResponse = new LoginResponse(user.getUsername(), jwt);
+    return ResponseEntity.ok(loginResponse);
     }
 
 
@@ -117,4 +113,9 @@ if(username == null || username.isEmpty()){
 
         return user;
     }
+
+    public Utente getUtenteByUsername(String username) {
+        return utenteRepository.findByUsername(username).orElse(null);
+    }
+
 }

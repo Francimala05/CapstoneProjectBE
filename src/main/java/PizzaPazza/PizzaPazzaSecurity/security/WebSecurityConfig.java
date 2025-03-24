@@ -41,6 +41,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/utente/insert").permitAll()
                         .requestMatchers("/utente/login", "/api/**").permitAll()
+                        .requestMatchers("/utente/get/**").permitAll()
                         .requestMatchers("/utente/auth/**").hasAuthority("USER")
                         .requestMatchers("/utente/admin/**").hasAuthority("ADMIN")
                         .requestMatchers("/images/**").permitAll()
