@@ -23,6 +23,16 @@ public class PrenotazioneController {
         return prenotazioneService.getPrenotazioneList();
     }
 
+
+    // RESTITUISCE LE PRENOTAZIONI PER UN SINGOLO UTENTE
+    @GetMapping("/utente/{username}")
+    public ResponseEntity<List<Prenotazione>> getPrenotazioniByUsername(@PathVariable String username) {
+        List<Prenotazione> prenotazioni = prenotazioneService.getPrenotazioniByUsername(username);
+        if (prenotazioni.isEmpty()) {
+            return ResponseEntity.status(404).body(null);  // Nessuna prenotazione trovata per l'utente
+        }
+        return ResponseEntity.ok(prenotazioni);
+    }
     //AGGIUNGERE UNA NUOVA PRENOTAZIONE
     @PostMapping
     public ResponseEntity<String> aggiungiPrenotazione(@RequestBody PrenotazioneDTO prenotazioneDTO) {

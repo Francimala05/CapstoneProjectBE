@@ -30,6 +30,17 @@ public class PrenotazioneService {
         return prenotazioneRepository.findAll();
     }
 
+    public List<Prenotazione> getPrenotazioniByUsername(String username) {
+        Optional<Utente> utenteOptional = utenteRepository.findByUsername(username);
+
+        if (utenteOptional.isEmpty()) {
+            return List.of();  // Se l'utente non esiste, ritorna una lista vuota
+        }
+
+        Utente utente = utenteOptional.get();
+        return prenotazioneRepository.findByUtente(utente);
+    }
+
     public boolean aggiungiPrenotazione(PrenotazioneDTO prenotazioneDTO) {
         String username = prenotazioneDTO.getUsername();
         Optional<Utente> utenteOptional = utenteRepository.findByUsername(username);

@@ -4,19 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="23/03 3.00&#10;Carrello e OrdineDomicilio funzionamento ottimale">
+    <list default="true" id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="25/03 0.00&#10;Sistemazione Profilo 1 funzionamento ottimale">
+      <change afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/model/payload/response/UtenteResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/OrdineAsportoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/OrdineAsportoDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/controller/UtenteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/controller/UtenteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/model/payload/response/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/model/payload/response/LoginResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/security/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/service/UtenteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/service/UtenteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/controller/UtenteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/controller/UtenteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/OrdineAsportoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/OrdineAsportoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/OrdineDomicilioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/OrdineDomicilioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/PrenotazioneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/PrenotazioneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/repositories/OrdineAsportoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/repositories/OrdineAsportoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/repositories/OrdineDomicilioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/repositories/OrdineDomicilioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/repositories/PrenotazioneRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/repositories/PrenotazioneRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/OrdineAsportoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/OrdineAsportoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/OrdineDomicilioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/OrdineDomicilioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/PrenotazioneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/PrenotazioneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/model/payload/response/LoginResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/model/payload/response/LoginResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/security/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/security/WebSecurityConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/service/UtenteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/service/UtenteService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Drink.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Drink.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Fritto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Fritto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Panuozzo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Panuozzo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Pizza.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Pizza.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/PrenotazioneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/PrenotazioneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/repositories/PrenotazioneRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/repositories/PrenotazioneRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/services/PrenotazioneService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/services/PrenotazioneService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742747010052</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="25/03 0.00&#10;Sistemazione Profilo 1 funzionamento ottimale">
+      <option name="closed" value="true" />
+      <created>1742859170919</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1742859170919</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,6 +274,7 @@
     <MESSAGE value="18/03 13.00&#10;Comunicazione Menu FE migliorata" />
     <MESSAGE value="23/03 3.00&#10;Carrello e OrdineAsporto funzionamento ottimale" />
     <MESSAGE value="23/03 3.00&#10;Carrello e OrdineDomicilio funzionamento ottimale" />
-    <option name="LAST_COMMIT_MESSAGE" value="23/03 3.00&#10;Carrello e OrdineDomicilio funzionamento ottimale" />
+    <MESSAGE value="25/03 0.00&#10;Sistemazione Profilo 1 funzionamento ottimale" />
+    <option name="LAST_COMMIT_MESSAGE" value="25/03 0.00&#10;Sistemazione Profilo 1 funzionamento ottimale" />
   </component>
 </project>

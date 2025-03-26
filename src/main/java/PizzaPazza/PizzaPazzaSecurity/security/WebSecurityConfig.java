@@ -42,6 +42,8 @@ public class WebSecurityConfig {
                         .requestMatchers("/utente/insert").permitAll()
                         .requestMatchers("/utente/login", "/api/**").permitAll()
                         .requestMatchers("/utente/get/**").permitAll()
+                        .requestMatchers("/api/ordini/asporto/utente/**").permitAll()
+                        .requestMatchers("/api/ordini/domicilio/utente/**").permitAll()
                         .requestMatchers("/utente/auth/**").hasAuthority("USER")
                         .requestMatchers("/utente/admin/**").hasAuthority("ADMIN")
                         .requestMatchers("/images/**").permitAll()

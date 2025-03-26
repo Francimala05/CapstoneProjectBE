@@ -8,6 +8,7 @@ import PizzaPazza.PizzaPazzaSecurity.model.exception.RuoloException;
 import PizzaPazza.PizzaPazzaSecurity.model.payload.UtenteDTO;
 import PizzaPazza.PizzaPazzaSecurity.model.payload.request.LoginRequest;
 import PizzaPazza.PizzaPazzaSecurity.model.payload.response.LoginResponse;
+import PizzaPazza.PizzaPazzaSecurity.model.payload.response.UtenteResponse;
 import PizzaPazza.PizzaPazzaSecurity.service.UtenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,23 +27,28 @@ public class UtenteController {
     UtenteService service;
 
     @PostMapping("/insert")
-    public ResponseEntity<String> insertUtente(@Validated @RequestBody UtenteDTO nuovoUtente, BindingResult chechValidazione) {
-        if (chechValidazione.hasErrors()) {
+    public ResponseEntity<UtenteResponse> insertUtente(@Validated @RequestBody UtenteDTO nuovoUtente, BindingResult checkValidazione) {
+        if (checkValidazione.hasErrors()) {
             StringBuilder erroriValidazione = new StringBuilder("Problemi nella validazione");
-            for (ObjectError errore : chechValidazione.getAllErrors()) {
+            for (ObjectError errore : checkValidazione.getAllErrors()) {
                 erroriValidazione.append(errore.getDefaultMessage());
             }
-            return new ResponseEntity<>(erroriValidazione.toString(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
         try {
-            String messaggio = service.insertUtente((nuovoUtente));
-            return new ResponseEntity<>(messaggio, HttpStatus.OK);
+            Utente savedUser = service.insertUtente(nuovoUtente); // Modifica per restituire l'utente salvato
+            UtenteResponse response = new UtenteResponse(
+                    "L'utente " + savedUser.getUsername() + " è stato inserito correttamente nel sistema.",
+                    savedUser.getIdUtente(),
+                    savedUser.getUsername()
+            );
+            return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (DuplicateEmailException e) {
-            return new ResponseEntity<>("Email già presente nel sistema", HttpStatus.NOT_ACCEPTABLE);
+            return new ResponseEntity<>(null, HttpStatus.NOT_ACCEPTABLE);
         } catch (DuplicateUsernameException e) {
-            return new ResponseEntity<>("Username già presente nel sistema", HttpStatus.NOT_ACCEPTABLE);
+            return new ResponseEntity<>(null, HttpStatus.NOT_ACCEPTABLE);
         } catch (RuoloException e) {
-            return new ResponseEntity<>("Errore di gestione ruolo utente", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

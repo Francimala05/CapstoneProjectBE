@@ -54,10 +54,9 @@ public class UtenteService {
     }
 
     // Metodo per inserire un nuovo utente
-    public String insertUtente(UtenteDTO dto) throws DuplicateEmailException, DuplicateUsernameException, RuoloException {
+    public Utente insertUtente(UtenteDTO dto) throws DuplicateEmailException, DuplicateUsernameException, RuoloException {
         // Verifica duplicati
         checkDuplicateKeys(dto.getUsername(), dto.getEmail());
-
 
         if (dto.getRuolo() == null) {
             dto.setRuolo("USER");
@@ -65,39 +64,38 @@ public class UtenteService {
 
         // Travaso
         Utente user = dtoToEntity(dto);
-
-
         String pwdEncoded = passwordEncoder.encode(dto.getPassword());
         user.setPassword(pwdEncoded);
 
         // Salvataggio dell'utente nel DB
-        Utente userDb = utenteRepository.save(user);
-
-
-
-        return "L'utente " + userDb.getUsername() + " è stato inserito correttamente nel sistema.";
+        return utenteRepository.save(user);  // Restituisci l'utente salvato
     }
+
 
 
     //LOGIN
     public ResponseEntity<?> login(LoginRequest loginRequest) {
 
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),loginRequest.getPassword()));
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword())
+        );
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-Object principal = authentication.getPrincipal();
-String username;
-if(principal instanceof User){
-    username = ((User) principal).getUsername();
-}else{
-    username = principal.toString();
-}
+        Object principal = authentication.getPrincipal();
+        String username;
+        if (principal instanceof User) {
+            username = ((User) principal).getUsername();
+        } else {
+            username = principal.toString();
+        }
 
-      Utente user= utenteRepository.findByUsername(username).orElseThrow(()-> new RuntimeException("Utente non trovato"));
+        Utente user = utenteRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("Utente non trovato"));
 
-    String jwt = jwtUtil.creaToken(user);
-        LoginResponse loginResponse = new LoginResponse(user.getUsername(), jwt);
-    return ResponseEntity.ok(loginResponse);
+        String jwt = jwtUtil.creaToken(user);
+        LoginResponse loginResponse = new LoginResponse(user.getUsername(), jwt, user.getIdUtente());
+
+        return ResponseEntity.ok(loginResponse);
     }
 
 

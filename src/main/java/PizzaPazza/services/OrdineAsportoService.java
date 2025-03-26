@@ -34,6 +34,23 @@ public class OrdineAsportoService {
     @Autowired
     private UtenteRepository utenteRepository;
 
+    public List<OrdineAsporto> getAllOrdini() {
+        return ordineRepository.findAll();
+    }
+
+
+    public List<OrdineAsporto> getOrdineAsportoByIdUtente(Long idUtente) {
+        Optional<Utente> utenteOptional = utenteRepository.findById(idUtente);
+
+        if (utenteOptional.isEmpty()) {
+            return List.of();
+        }
+
+        Utente utente = utenteOptional.get();
+        return ordineRepository.findByUtente(utente);
+    }
+
+
     // Metodo per creare un ordine
     public OrdineAsporto creaOrdine(OrdineAsportoDTO ordineRequest) {
         // Recupera i prodotti selezionati dal carrello tramite gli ID

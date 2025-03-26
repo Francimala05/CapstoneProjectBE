@@ -35,6 +35,23 @@ public class OrdineDomicilioService {
     @Autowired
     private UtenteRepository utenteRepository;
 
+
+    public List<OrdineDomicilio> getAllOrdini() {
+        return ordineRepository.findAll();
+    }
+
+    public List<OrdineDomicilio> getOrdineDomicilioByIdUtente(Long idUtente) {
+        Optional<Utente> utenteOptional = utenteRepository.findById(idUtente);
+
+        if (utenteOptional.isEmpty()) {
+            return List.of();
+        }
+
+        Utente utente = utenteOptional.get();
+        return ordineRepository.findByUtente(utente);
+    }
+
+
     // Metodo per creare un ordine
     public OrdineDomicilio creaOrdine(OrdineDomicilioDTO ordineRequest) {
         List<Pizza> pizze = pizzaRepository.findAllById(ordineRequest.getPizzeIds());
