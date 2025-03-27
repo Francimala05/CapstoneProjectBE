@@ -9,5 +9,6 @@ import java.util.List;
 
 @Repository
 public interface OrdineAsportoRepository extends JpaRepository<OrdineAsporto, Long> {
+    //PER UTENTE
     List<OrdineAsporto> findByUtente(Utente utente);
 }

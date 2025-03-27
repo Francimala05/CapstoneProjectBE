@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+//CAMPI UTENTE IN FASE DI REGISTRAZIONE CON DEI LIMITI
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//COSA VIENE RESTITUITO AL LOGIN
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

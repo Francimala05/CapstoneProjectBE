@@ -19,6 +19,7 @@ public class OrdineAsporto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //RELAZIONE ONETOMANY AI PRODOTTI
     @OneToMany(mappedBy = "ordineAsporto")
     private List<Pizza> pizze;
 
@@ -35,6 +36,7 @@ public class OrdineAsporto {
     private LocalTime orario;
     private String esigenzeParticolari;
 
+    //COLLEGO A UTENTE
     @ManyToOne
     @JoinColumn(name = "utente_id")
     private Utente utente;

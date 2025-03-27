@@ -18,6 +18,8 @@ public class Drink{
 	private String formato;
 	private double price;
 
+
+	//COLLEGO A ORDINEASPORTO E ORDINEDOMICILIO
 	@ManyToOne
 	@JoinColumn(name = "ordine_asporto_id")
 	private OrdineAsporto ordineAsporto;

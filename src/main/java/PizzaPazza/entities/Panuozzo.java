@@ -23,6 +23,7 @@ public class Panuozzo {
 
     private String imageUrl;
 
+    //COLLEGO A ORDINEASPORTO E ORDINEDOMICILIO
     @ManyToOne
     @JoinColumn(name = "ordine_asporto_id")
     private OrdineAsporto ordineAsporto;

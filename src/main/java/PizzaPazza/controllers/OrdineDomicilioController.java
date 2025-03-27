@@ -23,13 +23,13 @@ public class OrdineDomicilioController {
         return ordineDomicilioService.getAllOrdini();
     }
 
+    //CREA UN ORDINE DOMICILIO OVVIAMENTE CON AUTORIZZAZIONE
     @PostMapping("/invia")
     public ResponseEntity<?> creaOrdine(@RequestBody OrdineDomicilioDTO ordineRequest, @RequestHeader("Authorization") String authorization) {
         try {
-            // Stampa del token ricevuto (per debugging)
+            // Stampa del token ricevuto
             System.out.println("Token ricevuto: " + authorization);
 
-            // Creazione dell'ordine senza associare chiavi esterne
             OrdineDomicilio ordine = ordineDomicilioService.creaOrdine(ordineRequest);
             return ResponseEntity.ok("Ordine inviato con successo! ID Ordine: " + ordine.getId());
         } catch (Exception e) {

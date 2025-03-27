@@ -28,9 +28,7 @@ public class WebSecurityConfig {
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-
-
-
+    //TUTTI I FILTRI DEI PERCORSI E DEGLI ACCESSI A CHI LOGGATO E A CHI NO
 
 
     @Bean

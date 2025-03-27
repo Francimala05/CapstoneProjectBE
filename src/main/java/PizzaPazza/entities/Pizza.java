@@ -27,6 +27,7 @@ public class Pizza{
 	private double chiloPrice;
 	private String imageUrl;
 
+	//COLLEGO A ORDINEASPORTO E ORDINEDOMICILIO
 	@ManyToOne
 	@JoinColumn(name = "ordine_asporto_id")
 	private OrdineAsporto ordineAsporto;

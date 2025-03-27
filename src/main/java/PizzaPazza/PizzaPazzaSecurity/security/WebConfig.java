@@ -8,7 +8,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // Aggiungi un mapping per i file immagine
+        //MAPPING PER L'IMMAGINE
         registry.addResourceHandler("/images/**")
                 .addResourceLocations("file:src/main/resources/static/images/");
     }

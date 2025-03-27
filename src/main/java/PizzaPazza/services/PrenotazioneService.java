@@ -26,15 +26,18 @@ public class PrenotazioneService {
 
     private static final int MAX_POSTI = 45;
 
+    //RESTITUISCE LISTA PRENOTAZIONI
     public List<Prenotazione> getPrenotazioneList() {
         return prenotazioneRepository.findAll();
     }
 
+
+    //RESTITUISCE LISTA PRENOTAZIONI TRAMITE USERNAME
     public List<Prenotazione> getPrenotazioniByUsername(String username) {
         Optional<Utente> utenteOptional = utenteRepository.findByUsername(username);
 
         if (utenteOptional.isEmpty()) {
-            return List.of();  // Se l'utente non esiste, ritorna una lista vuota
+            return List.of();
         }
 
         Utente utente = utenteOptional.get();
@@ -66,14 +69,14 @@ public class PrenotazioneService {
             return false;
         }
 
-        // Crea la prenotazione
+        //CREAZIONE PRENOTAZIONE
         Prenotazione prenotazione = new Prenotazione(null, utente, data, orario, numeroPersone, prenotazioneDTO.getAltrePreferenze(), utente.getCognome());
         prenotazioneRepository.save(prenotazione);
         return true;
     }
 
 
-    // Verifica se l'orario è valido
+    // VERIFICA ORARIO
     private boolean orarioValido(LocalDateTime dataOra) {
         return dataOra.getDayOfWeek() != DayOfWeek.TUESDAY
                 && !dataOra.toLocalTime().isBefore(LocalTime.of(16, 0))

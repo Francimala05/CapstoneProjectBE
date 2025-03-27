@@ -34,11 +34,12 @@ public class OrdineAsportoService {
     @Autowired
     private UtenteRepository utenteRepository;
 
+    //RESTITUISCE TUTTI GLI ORDINI
     public List<OrdineAsporto> getAllOrdini() {
         return ordineRepository.findAll();
     }
 
-
+//GET ORDINE DELL'UTENTE SINGOLO
     public List<OrdineAsporto> getOrdineAsportoByIdUtente(Long idUtente) {
         Optional<Utente> utenteOptional = utenteRepository.findById(idUtente);
 
@@ -51,8 +52,9 @@ public class OrdineAsportoService {
     }
 
 
-    // Metodo per creare un ordine
+    // CREAZIONE ORDINE
     public OrdineAsporto creaOrdine(OrdineAsportoDTO ordineRequest) {
+
         // Recupera i prodotti selezionati dal carrello tramite gli ID
         List<Pizza> pizze = pizzaRepository.findAllById(ordineRequest.getPizzeIds());
         List<Panuozzo> panuozzi = panuozzoRepository.findAllById(ordineRequest.getPanuozziIds());
@@ -66,14 +68,14 @@ public class OrdineAsportoService {
             ordineRequest.setOrario(LocalTime.now());
         }
 
-        // Ottieni l'utente dal repository utilizzando il nome utente dal DTO
+        // Restituisce l'utente dal repository utilizzando il nome utente dal DTO
         Optional<Utente> utenteOptional = utenteRepository.findByUsername(ordineRequest.getUsername());
         if (utenteOptional.isEmpty()) {
             throw new RuntimeException("Utente non trovato: " + ordineRequest.getUsername());
         }
         Utente utente = utenteOptional.get();
 
-        // Crea l'ordine, associando l'utente recuperato e passando anche il conto
+        // Creazione dell' ordine, associando l'utente recuperato
         OrdineAsporto ordine = new OrdineAsporto(
                 pizze, panuozzi, fritti, bibite, ordineRequest.getOrario(), ordineRequest.getData(),
                 ordineRequest.getEsigenzeParticolari(), utente, ordineRequest.getConto()

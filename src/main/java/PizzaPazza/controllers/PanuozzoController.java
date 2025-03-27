@@ -81,7 +81,7 @@ public class PanuozzoController {
         }
     }
 
-
+//SALVARE PANUOZZO ANCHE CON IMMAGINE STATICA IN STATIC.IMAGES
     private String saveImage(MultipartFile image) throws IOException {
         String projectPath = System.getProperty("user.dir");
         String uploadsDir = projectPath + "/src/main/resources/static/images/";
@@ -90,7 +90,6 @@ public class PanuozzoController {
             directory.mkdirs();
         }
 
-
         String uniqueFileName = System.currentTimeMillis() + "_" + image.getOriginalFilename();
         File targetFile = new File(uploadsDir + uniqueFileName);
         image.transferTo(targetFile);
@@ -98,6 +97,8 @@ public class PanuozzoController {
         return "/images/" + uniqueFileName;
     }
 
+
+    //METODO PER ELIMINARE UN PANUOZZO PER NOME
     @DeleteMapping
     public ResponseEntity<String> deletePanuozzoByName(@RequestParam String name) {
         List<Panuozzo> panuozzi = menuService.getPanuozzoList().stream()

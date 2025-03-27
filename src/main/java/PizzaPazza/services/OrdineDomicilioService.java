@@ -35,11 +35,12 @@ public class OrdineDomicilioService {
     @Autowired
     private UtenteRepository utenteRepository;
 
-
+//RESTITUISCE TUTTI GLI ORDINI DOMICILIO
     public List<OrdineDomicilio> getAllOrdini() {
         return ordineRepository.findAll();
     }
 
+    //PRENDE ORDINE DOMICILIO TRAMITE L'ID
     public List<OrdineDomicilio> getOrdineDomicilioByIdUtente(Long idUtente) {
         Optional<Utente> utenteOptional = utenteRepository.findById(idUtente);
 
@@ -52,7 +53,7 @@ public class OrdineDomicilioService {
     }
 
 
-    // Metodo per creare un ordine
+    // CREAZIONE ORDINE
     public OrdineDomicilio creaOrdine(OrdineDomicilioDTO ordineRequest) {
         List<Pizza> pizze = pizzaRepository.findAllById(ordineRequest.getPizzeIds());
         List<Panuozzo> panuozzi = panuozzoRepository.findAllById(ordineRequest.getPanuozziIds());

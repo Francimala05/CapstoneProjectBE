@@ -19,6 +19,7 @@ public class OrdineDomicilio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //RELAZIONE ONETOMANY AI PRODOTTI
     @OneToMany(mappedBy = "ordineDomicilio")
     private List<Pizza> pizze;
 
@@ -37,6 +38,7 @@ public class OrdineDomicilio {
     private  String indirizzo;
     private String esigenzeParticolari;
 
+    //COLLEGO A UTENTE
     @ManyToOne
     @JoinColumn(name = "utente_id")
     private Utente utente;

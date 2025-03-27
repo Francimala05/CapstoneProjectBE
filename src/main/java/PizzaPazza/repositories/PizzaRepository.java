@@ -8,6 +8,7 @@ import java.util.List;
 
 @Repository
 public interface PizzaRepository extends JpaRepository<Pizza, Long> {
+    //PER NOME
     List<Pizza> findByName(String name);
 
 }

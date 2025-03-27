@@ -9,5 +9,6 @@ import java.util.List;
 
 @Repository
 public interface OrdineDomicilioRepository extends JpaRepository<OrdineDomicilio, Long> {
+    //PER UTENTE
     List<OrdineDomicilio> findByUtente(Utente utente);
 }

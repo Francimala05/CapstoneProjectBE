@@ -68,7 +68,7 @@ public class UtenteService {
         user.setPassword(pwdEncoded);
 
         // Salvataggio dell'utente nel DB
-        return utenteRepository.save(user);  // Restituisci l'utente salvato
+        return utenteRepository.save(user);
     }
 
 
@@ -111,7 +111,7 @@ public class UtenteService {
 
         return user;
     }
-
+//UTENTE DA USERNAME
     public Utente getUtenteByUsername(String username) {
         return utenteRepository.findByUsername(username).orElse(null);
     }

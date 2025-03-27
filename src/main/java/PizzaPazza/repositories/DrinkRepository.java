@@ -9,5 +9,6 @@ import java.util.List;
 
 @Repository
 public interface DrinkRepository  extends JpaRepository<Drink, Long> {
+  //TROVA PER NOME
     List<Drink> findByNameIgnoreCase(String name);
 }

@@ -22,6 +22,7 @@ public class Prenotazione {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPrenotazione;
 
+	//COLLEGO A UTENTE
 	@ManyToOne
 	@JoinColumn(name = "idUtente", nullable = false)
 	private Utente utente;

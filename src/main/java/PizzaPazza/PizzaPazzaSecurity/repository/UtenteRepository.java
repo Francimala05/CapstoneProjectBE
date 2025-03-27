@@ -12,7 +12,7 @@ public interface UtenteRepository extends JpaRepository<Utente, Long> {
     //CHECK LOGIN
     public boolean existsByUsernameAndPassword(String username, String Password);
 
-    //CHECK CHIAVI DUPLICATE IN FASE DI REGISTRAZIONE
+    //CHECK CHIAVI DUPLICATE IN FASE DI REGISTRAZIONE(PER EMAIL E USERNAME)
     public boolean existsByUsername(String username);
             public boolean existsByEmail(String email);
 }

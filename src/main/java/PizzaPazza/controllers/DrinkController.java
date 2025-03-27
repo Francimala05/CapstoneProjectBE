@@ -20,10 +20,8 @@ public class DrinkController {
     @GetMapping
     public List<Drink> getDrinks(@RequestParam(required = false) String name) {
         if (name != null && !name.isEmpty()) {
-            // Se viene fornito il nome, filtra per nome
             return menuService.getDrinkListByName(name);
         }
-        // Altrimenti restituisce tutte le bibite
         return menuService.getDrinkList();
     }
 

@@ -26,6 +26,7 @@ public class UtenteController {
     @Autowired
     UtenteService service;
 
+    //METODO PER INSERIRE UN UTENTE
     @PostMapping("/insert")
     public ResponseEntity<UtenteResponse> insertUtente(@Validated @RequestBody UtenteDTO nuovoUtente, BindingResult checkValidazione) {
         if (checkValidazione.hasErrors()) {
@@ -36,7 +37,7 @@ public class UtenteController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
         try {
-            Utente savedUser = service.insertUtente(nuovoUtente); // Modifica per restituire l'utente salvato
+            Utente savedUser = service.insertUtente(nuovoUtente);
             UtenteResponse response = new UtenteResponse(
                     "L'utente " + savedUser.getUsername() + " è stato inserito correttamente nel sistema.",
                     savedUser.getIdUtente(),
@@ -52,6 +53,7 @@ public class UtenteController {
         }
     }
 
+    //LOGIN
     @PostMapping("/login")
     public ResponseEntity<?> login(@Validated @RequestBody LoginRequest loginDTO, BindingResult checkValidazione) {
 
@@ -74,6 +76,7 @@ public class UtenteController {
 
     }
 
+    //PRENDERE UTENTE TRAMITE USERNAME
     @GetMapping("/get/{username}")
     public ResponseEntity<?> getUtente(@PathVariable String username) {
         Utente utente = service.getUtenteByUsername(username);

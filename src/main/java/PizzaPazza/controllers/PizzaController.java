@@ -52,7 +52,7 @@ public class PizzaController {
                             .collect(Collectors.toList());
                     pizzaDTO.setToppings(toppings);
 
-                    // Imposta i prezzi per i vari formati
+                    //IMPOSTA I PREZZI
                     pizzaDTO.setPrice(groupedPizzas.stream()
                             .filter(pizza -> pizza.getName().equals(nameKey) && pizza.getPrice() > 0)
                             .findFirst().map(Pizza::getPrice).orElse(0.0));
@@ -63,7 +63,7 @@ public class PizzaController {
                             .filter(pizza -> pizza.getName().equals(nameKey) && pizza.getChiloPrice() > 0)
                             .findFirst().map(Pizza::getChiloPrice).orElse(0.0));
 
-                    // Gestisci l'URL dell'immagine
+                    // URL DELL IMMAGINE COLLEGATO
                     String imageUrl = groupedPizzas.get(0).getImageUrl();
                     if (!imageUrl.startsWith("/images/")) {
                         imageUrl = "/images/" + imageUrl;
@@ -90,13 +90,13 @@ public class PizzaController {
             double mezzoChiloPrice = pizzaDTO.getMezzoChiloPrice();
             double chiloPrice = pizzaDTO.getChiloPrice();
 
-            // Salva l'immagine e ottieni il percorso
+            //SALVA L'IMMAGINE
             String imagePath = saveImage(image);
-            pizzaDTO.setImageUrl(imagePath);  // Imposta il campo imageUrl nel PizzaDTO
+            pizzaDTO.setImageUrl(imagePath);
 
-            // Crea una nuova pizza, passandole l'URL dell'immagine
+            // CREA UNA NUOVA PIZZA E COLLEGA L'IMMAGINE
             Pizza newPizza = new Pizza(pizzaDTO.getName(), String.join(",", toppingNames), pizzaPrice, mezzoChiloPrice, chiloPrice, pizzaDTO.getImageUrl());
-            menuService.addPizza(newPizza); // Aggiungi la pizza al menu
+            menuService.addPizza(newPizza);
 
             return ResponseEntity.ok("Pizza aggiunta con successo! Immagine salvata in: " + imagePath);
         } catch (Exception e) {
@@ -104,7 +104,7 @@ public class PizzaController {
         }
     }
 
-    // Metodo per salvare l'immagine sul server
+    //SALVA L'IMMAGINE SUL SERVER
     private String saveImage(MultipartFile image) throws IOException {
         String projectPath = System.getProperty("user.dir");
         String uploadsDir = projectPath + "/src/main/resources/static/images/";
@@ -113,16 +113,14 @@ public class PizzaController {
             directory.mkdirs();
         }
 
-        // Genera un nome unico per l'immagine per evitare conflitti di nome
         String uniqueFileName = System.currentTimeMillis() + "_" + image.getOriginalFilename();
         File targetFile = new File(uploadsDir + uniqueFileName);
         image.transferTo(targetFile);
 
-        // Restituisci il percorso dell'immagine che può essere accessibile tramite un URL
         return "/images/" + uniqueFileName;
     }
 
-    // Metodo per eliminare una pizza in base al nome
+    // ELIMINAZIONE PIZZA TRAMITE NOME
     @DeleteMapping
     public ResponseEntity<String> deletePizzaByName(@RequestParam String name) {
         List<Pizza> pizzas = menuService.getPizzaList().stream()
@@ -133,20 +131,19 @@ public class PizzaController {
             return ResponseEntity.status(404).body("Pizza con nome " + name + " non trovata.");
         }
 
-        // Rimuovi tutte le pizze con quel nome
+        // ELIMINARE TUTTE LE PIZZE COL SINGOLO NOME
         menuService.deletePizzasByName(name);
 
         return ResponseEntity.ok("Pizza con nome " + name + " eliminata con successo.");
     }
 
+    //MODIFICA PIZZA RICERCATA PER NOME
     @PutMapping
     public ResponseEntity<String> updatePizza(@RequestParam String name, @RequestParam("pizza") String pizzaJson, @RequestParam(value = "image", required = false) MultipartFile image) {
         try {
-            // JSON della pizza convertito in un oggetto PizzaDTO
             ObjectMapper objectMapper = new ObjectMapper();
             PizzaDTO pizzaDTO = objectMapper.readValue(pizzaJson, PizzaDTO.class);
 
-            // Cerca la pizza esistente nel database
             List<Pizza> pizzas = menuService.getPizzaList().stream()
                     .filter(pizza -> pizza.getName().equalsIgnoreCase(name))
                     .collect(Collectors.toList());
@@ -155,10 +152,9 @@ public class PizzaController {
                 return ResponseEntity.status(404).body("Pizza con nome " + name + " non trovata.");
             }
 
-            // Trova la pizza che corrisponde al nome
             Pizza existingPizza = pizzas.get(0);
 
-            // Aggiorna i dettagli della pizza
+            //AGGIORNARE DETTAGLI
             existingPizza.setName(pizzaDTO.getName());
             existingPizza.setToppingNames(String.join(",", pizzaDTO.getToppings()));
             existingPizza.setPrice(pizzaDTO.getPrice());
@@ -170,7 +166,6 @@ public class PizzaController {
                 existingPizza.setImageUrl(imagePath);
             }
 
-            // Salva la pizza aggiornata nel database
             menuService.updatePizza(existingPizza);
 
             return ResponseEntity.ok("Pizza con nome " + name + " aggiornata con successo.");

@@ -3,6 +3,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+//COSA VIENE RESTITUITO ALLA REGISTRAZIONE
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

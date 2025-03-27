@@ -25,14 +25,13 @@ public class OrdineAsportoController {
         return ordineAsportoService.getAllOrdini();
     }
 
-
+//CREA UN ORDINE ASPORTO OVVIAMENTE CON AUTORIZZAZIONE
     @PostMapping("/invia")
     public ResponseEntity<?> creaOrdine(@RequestBody OrdineAsportoDTO ordineRequest, @RequestHeader("Authorization") String authorization) {
         try {
-            // Stampa del token ricevuto (per debugging)
+            // Stampa del token ricevuto visualizzabile in console
             System.out.println("Token ricevuto: " + authorization);
 
-            // Creazione dell'ordine senza associare chiavi esterne
             OrdineAsporto ordine = ordineAsportoService.creaOrdine(ordineRequest);
             return ResponseEntity.ok("Ordine inviato con successo! ID Ordine: " + ordine.getId());
         } catch (Exception e) {

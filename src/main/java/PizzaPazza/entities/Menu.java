@@ -17,3 +17,6 @@ public class Menu {
 	private List<Panuozzo> panuozzoList;
 	private List<Fritto> frittoList;
 }
+
+
+//RACCOLTA NEL MENU

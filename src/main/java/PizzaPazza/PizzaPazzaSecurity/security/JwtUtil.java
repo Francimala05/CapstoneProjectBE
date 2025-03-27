@@ -43,7 +43,7 @@ public class JwtUtil {
                 .compact();
     }
 
-
+//VALIDAZIONE TOKEN
     public boolean validateToken(String token){
         try {
             Jwts.parser()
@@ -54,7 +54,7 @@ public class JwtUtil {
             return false;
         }
     }
-
+    //DALL'USERNAME IL TOKEN
     public String getUsernameFromToken(String token){
         return Jwts.parser()
                 .setSigningKey(getSignedKey())
@@ -63,7 +63,7 @@ public class JwtUtil {
                 .getSubject();
     }
 
-
+    //CONTROLLO SE TOKEN SCADUTO
     public boolean checkExpiration(Claims claims){
         try{
            return claims.getExpiration().after(new Date());
@@ -71,7 +71,7 @@ public class JwtUtil {
             throw new CreateTokenException("Errore nel controllo della scadenza del token");
         }
     }
-    //Estrapola dal token l'username
+
     private Key getSignedKey(){
         return Keys.hmacShaKeyFor(jwtSecret.getBytes());
     }

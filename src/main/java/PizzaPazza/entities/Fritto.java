@@ -21,7 +21,7 @@ public class Fritto {
     private String name;
     private double price;
 
-
+    //COLLEGO A ORDINEASPORTO E ORDINEDOMICILIO
     @ManyToOne
     @JoinColumn(name = "ordine_asporto_id")
     private OrdineAsporto ordineAsporto;

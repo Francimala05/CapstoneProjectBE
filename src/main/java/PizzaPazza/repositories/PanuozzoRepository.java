@@ -9,5 +9,6 @@ import java.util.List;
 
 @Repository
 public interface PanuozzoRepository extends JpaRepository<Panuozzo, Long> {
+    //PER NOME
     List<Panuozzo> findByName(String name);
 }

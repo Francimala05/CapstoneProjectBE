@@ -10,7 +10,9 @@ import java.util.List;
 
 @Repository
 public interface PrenotazioneRepository extends JpaRepository<Prenotazione, Long> {
+    //RACCOGLIE PER ORARIO E DATA
     List<Prenotazione> findByDataAndOrario(LocalDate data, LocalTime orario);
+    //PER UTENTE
     List<Prenotazione> findByUtente(Utente utente);
 }
 

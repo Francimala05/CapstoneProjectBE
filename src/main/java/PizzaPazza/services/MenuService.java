@@ -18,10 +18,11 @@ public class MenuService {
     @Autowired
     private PizzaRepository pizzaRepository;
 
+    //RESTITUISCE TUTTE LE PIZZE
     public List<Pizza> getPizzaList() {
         return pizzaRepository.findAll();
     }
-
+//AGGIUNGE E SALVA UNA PIZZA
     public void addPizza(Pizza pizza) {
         pizzaRepository.save(pizza);
     }
@@ -29,14 +30,17 @@ public class MenuService {
     @Autowired
     private DrinkRepository drinkRepository;
 
+    //RESTITUISCE TUTTE LE BIBITE
     public List<Drink> getDrinkList() {
         return drinkRepository.findAll();
     }
 
+    //RESTITUISCE SINGOLE BIBITE PER NOME
     public List<Drink> getDrinkListByName(String name) {
         return drinkRepository.findByNameIgnoreCase(name);  // Ignora maiuscole/minuscole
     }
 
+    //AGGIUNGE BIBITA
     public void addDrink(Drink drink) {
         drinkRepository.save(drink);
     }
@@ -44,10 +48,13 @@ public class MenuService {
     @Autowired
     private PanuozzoRepository panuozzoRepository;
 
+
+    //RESTITUISCE LISTA PANUOZZI
     public List<Panuozzo> getPanuozzoList() {
         return panuozzoRepository.findAll();
     }
 
+    //AGGIUNGE PANUOZZO
     public void addPanuozzo(Panuozzo panuozzo) {
         panuozzoRepository.save(panuozzo);
     }
@@ -56,13 +63,18 @@ public class MenuService {
     @Autowired
     private FrittoRepository frittoRepository;
 
+    //RESTITUISCE LISTA FRITTI
     public List<Fritto> getFrittoList() {
         return frittoRepository.findAll();
     }
 
+
+    //AGGIUNGE FRITTO
     public void addFritto(Fritto fritto) {
         frittoRepository.save(fritto);
     }
+
+    //ELIMINA UNA PIZZA PER NOME
     public void deletePizzasByName(String name) {
         List<Pizza> pizzasToDelete = pizzaRepository.findByName(name);
         if (pizzasToDelete != null && !pizzasToDelete.isEmpty()) {
@@ -70,10 +82,12 @@ public class MenuService {
         }
     }
 
+    //AGGIORNA UNA SINGOLA PIZZA
     public void updatePizza(Pizza pizza) {
         pizzaRepository.save(pizza);
     }
 
+    //ELIMINA PANUOZZO PER NOME
     public void deletePanuozzoByName(String name) {
         List<Panuozzo> panuozziToDelete = panuozzoRepository.findByName(name);
         if (panuozziToDelete != null && !panuozziToDelete.isEmpty()) {
@@ -81,6 +95,8 @@ public class MenuService {
         }
     }
 
+
+    //ELIMINA IL DRINK PER NOME
     public boolean deleteDrinkByName(String name) {
         List<Drink> drinksToDelete = drinkRepository.findByNameIgnoreCase(name);
         if (!drinksToDelete.isEmpty()) {
