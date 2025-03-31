@@ -12,4 +12,5 @@ public class UtenteResponse {
     private String message;
     private Long idUtente;
     private String username;
+    private String token;
 }

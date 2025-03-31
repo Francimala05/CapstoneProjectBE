@@ -9,6 +9,7 @@ import PizzaPazza.PizzaPazzaSecurity.model.payload.UtenteDTO;
 import PizzaPazza.PizzaPazzaSecurity.model.payload.request.LoginRequest;
 import PizzaPazza.PizzaPazzaSecurity.model.payload.response.LoginResponse;
 import PizzaPazza.PizzaPazzaSecurity.model.payload.response.UtenteResponse;
+import PizzaPazza.PizzaPazzaSecurity.security.JwtUtil;
 import PizzaPazza.PizzaPazzaSecurity.service.UtenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,6 +27,9 @@ public class UtenteController {
     @Autowired
     UtenteService service;
 
+    @Autowired
+    JwtUtil jwtUtil;
+
     //METODO PER INSERIRE UN UTENTE
     @PostMapping("/insert")
     public ResponseEntity<UtenteResponse> insertUtente(@Validated @RequestBody UtenteDTO nuovoUtente, BindingResult checkValidazione) {
@@ -38,10 +42,13 @@ public class UtenteController {
         }
         try {
             Utente savedUser = service.insertUtente(nuovoUtente);
+            String token = jwtUtil.creaToken(savedUser);
+
             UtenteResponse response = new UtenteResponse(
                     "L'utente " + savedUser.getUsername() + " è stato inserito correttamente nel sistema.",
                     savedUser.getIdUtente(),
-                    savedUser.getUsername()
+                    savedUser.getUsername(),
+                    token
             );
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (DuplicateEmailException e) {
