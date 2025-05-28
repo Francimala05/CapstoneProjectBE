@@ -10,10 +10,10 @@ import java.util.List;
 @Setter
 public class OrdineAsportoDTO {
 
-    private List<Long> pizzeIds;
-    private List<Long> panuozziIds;
-    private List<Long> frittiIds;
-    private List<Long> bibiteIds;
+    private List<PizzaDTO> pizze;
+    private List<PanuozzoDTO> panuozzi;
+    private List<FrittoDTO> fritti;
+    private List<DrinkDTO> bibite;
     private String esigenzeParticolari;
     private LocalDate data;
     private LocalTime orario;

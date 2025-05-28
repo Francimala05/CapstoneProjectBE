@@ -11,7 +11,7 @@ public class PanuozzoDTO {
     private Long id;
     private String name;
     private List<String> toppings;
-    private double interoPrice;
-    private double mezzoPrice;
+    private String formato;
+    private double price;
     private String imageUrl;
 }

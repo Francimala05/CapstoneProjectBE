@@ -33,7 +33,7 @@ public class PanuozzoController {
                 : menuService.getPanuozzoList();
 
         List<PanuozzoDTO> panuozzoDTOs = new ArrayList<>();
-        panuozzi.forEach(panuozzo -> {
+        for (Panuozzo panuozzo : panuozzi) {
             PanuozzoDTO panuozzoDTO = new PanuozzoDTO();
             panuozzoDTO.setId(panuozzo.getId());
             panuozzoDTO.setName(panuozzo.getName());
@@ -41,8 +41,8 @@ public class PanuozzoController {
             List<String> toppings = Arrays.asList(panuozzo.getToppingNames().split(","));
             panuozzoDTO.setToppings(toppings);
 
-            panuozzoDTO.setInteroPrice(panuozzo.getInteroPrice());
-            panuozzoDTO.setMezzoPrice(panuozzo.getMezzoPrice());
+            panuozzoDTO.setFormato(panuozzo.getFormato());
+            panuozzoDTO.setPrice(panuozzo.getPrice());
 
             String imageUrl = panuozzo.getImageUrl();
             if (!imageUrl.startsWith("/images/")) {
@@ -51,28 +51,34 @@ public class PanuozzoController {
             panuozzoDTO.setImageUrl("http://localhost:8085" + imageUrl);
 
             panuozzoDTOs.add(panuozzoDTO);
-        });
+        }
 
         return panuozzoDTOs;
     }
 
-    // AGGIUNGE UN NUOVO PANUOZZO CON I PREZZI PER INTERO E MEZZO
+    // AGGIUNGE UN NUOVO PANUOZZO CON FORMATO E PREZZO
     @PostMapping
-    public ResponseEntity<String> addPanuozzo(@RequestParam("panuozzo") String panuozzoJson, @RequestParam("image") MultipartFile image) {
+    public ResponseEntity<String> addPanuozzo(@RequestParam("panuozzo") String panuozzoJson,
+                                              @RequestParam("image") MultipartFile image) {
         try {
-            // JSON del panuozzo convertito in un oggetto PanuozzoDTO
             ObjectMapper objectMapper = new ObjectMapper();
             PanuozzoDTO panuozzoDTO = objectMapper.readValue(panuozzoJson, PanuozzoDTO.class);
 
             List<String> toppingNames = panuozzoDTO.getToppings();
-            double interoPrice = panuozzoDTO.getInteroPrice();
-            double mezzoPrice = panuozzoDTO.getMezzoPrice();
+            String formato = panuozzoDTO.getFormato();
+            double price = panuozzoDTO.getPrice();
 
             String imagePath = saveImage(image);
             panuozzoDTO.setImageUrl(imagePath);
 
+            Panuozzo newPanuozzo = new Panuozzo(
+                    panuozzoDTO.getName(),
+                    formato,
+                    price,
+                    String.join(",", toppingNames),
+                    imagePath
+            );
 
-            Panuozzo newPanuozzo = new Panuozzo(panuozzoDTO.getName(), interoPrice, mezzoPrice, String.join(",", toppingNames), imagePath);
             menuService.addPanuozzo(newPanuozzo);
 
             return ResponseEntity.ok("Panuozzo aggiunto con successo! Immagine salvata in: " + imagePath);
@@ -81,7 +87,7 @@ public class PanuozzoController {
         }
     }
 
-//SALVARE PANUOZZO ANCHE CON IMMAGINE STATICA IN STATIC.IMAGES
+    // SALVA L’IMMAGINE DEL PANUOZZO
     private String saveImage(MultipartFile image) throws IOException {
         String projectPath = System.getProperty("user.dir");
         String uploadsDir = projectPath + "/src/main/resources/static/images/";
@@ -97,8 +103,7 @@ public class PanuozzoController {
         return "/images/" + uniqueFileName;
     }
 
-
-    //METODO PER ELIMINARE UN PANUOZZO PER NOME
+    // ELIMINA UN PANUOZZO PER NOME
     @DeleteMapping
     public ResponseEntity<String> deletePanuozzoByName(@RequestParam String name) {
         List<Panuozzo> panuozzi = menuService.getPanuozzoList().stream()
@@ -110,7 +115,6 @@ public class PanuozzoController {
         }
 
         menuService.deletePanuozzoByName(name);
-
         return ResponseEntity.ok("Panuozzo con nome " + name + " eliminato con successo.");
     }
 }

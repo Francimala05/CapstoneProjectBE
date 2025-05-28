@@ -7,8 +7,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import org.springframework.web.multipart.MultipartFile;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,88 +23,120 @@ public class PizzaController {
     @Autowired
     private MenuService menuService;
 
-    // RESTITUISCE LA LISTA DELLE PIZZE
+    // GET - Lista delle pizze (opzionalmente filtrata per nome)
     @GetMapping
     public List<PizzaDTO> getPizzas(@RequestParam(required = false) String name) {
-        List<Pizza> pizzas;
-
-        if (name != null && !name.isEmpty()) {
-            pizzas = menuService.getPizzaList().stream()
-                    .filter(pizza -> pizza.getName().equalsIgnoreCase(name))
-                    .collect(Collectors.toList());
-        } else {
-            // Altrimenti restituisci tutte le pizze
-            pizzas = menuService.getPizzaList();
-        }
+        List<Pizza> pizzas = (name != null && !name.isEmpty())
+                ? menuService.getPizzaList().stream()
+                .filter(pizza -> pizza.getName().equalsIgnoreCase(name))
+                .collect(Collectors.toList())
+                : menuService.getPizzaList();
 
         List<PizzaDTO> pizzaDTOs = new ArrayList<>();
-        pizzas.stream()
-                .collect(Collectors.groupingBy(pizza -> pizza.getName()))
-                .forEach((nameKey, groupedPizzas) -> {
-                    PizzaDTO pizzaDTO = new PizzaDTO();
-                    pizzaDTO.setId(groupedPizzas.get(0).getId());
-                    pizzaDTO.setName(nameKey);
+        for (Pizza pizza : pizzas) {
+            PizzaDTO dto = new PizzaDTO();
+            dto.setId(pizza.getId());
+            dto.setName(pizza.getName());
+            dto.setFormato(pizza.getFormato());
+            dto.setPrice(pizza.getPrice());
 
-                    // Trova gli ingredienti (toppings)
-                    List<String> toppings = groupedPizzas.stream()
-                            .flatMap(pizza -> Arrays.stream(pizza.getToppingNames().split(",")))
-                            .distinct()
-                            .collect(Collectors.toList());
-                    pizzaDTO.setToppings(toppings);
+            List<String> toppings = Arrays.asList(pizza.getToppingNames().split(","));
+            dto.setToppings(toppings);
 
-                    //IMPOSTA I PREZZI
-                    pizzaDTO.setPrice(groupedPizzas.stream()
-                            .filter(pizza -> pizza.getName().equals(nameKey) && pizza.getPrice() > 0)
-                            .findFirst().map(Pizza::getPrice).orElse(0.0));
-                    pizzaDTO.setMezzoChiloPrice(groupedPizzas.stream()
-                            .filter(pizza -> pizza.getName().equals(nameKey) && pizza.getMezzoChiloPrice() > 0)
-                            .findFirst().map(Pizza::getMezzoChiloPrice).orElse(0.0));
-                    pizzaDTO.setChiloPrice(groupedPizzas.stream()
-                            .filter(pizza -> pizza.getName().equals(nameKey) && pizza.getChiloPrice() > 0)
-                            .findFirst().map(Pizza::getChiloPrice).orElse(0.0));
+            String imageUrl = pizza.getImageUrl();
+            if (!imageUrl.startsWith("/images/")) {
+                imageUrl = "/images/" + imageUrl;
+            }
+            dto.setImageUrl("http://localhost:8085" + imageUrl);
 
-                    // URL DELL IMMAGINE COLLEGATO
-                    String imageUrl = groupedPizzas.get(0).getImageUrl();
-                    if (!imageUrl.startsWith("/images/")) {
-                        imageUrl = "/images/" + imageUrl;
-                    }
-                    pizzaDTO.setImageUrl("http://localhost:8085" + imageUrl);
-
-                    pizzaDTOs.add(pizzaDTO);
-                });
+            pizzaDTOs.add(dto);
+        }
 
         return pizzaDTOs;
     }
 
-
-    // AGGIUNGE UNA NUOVA PIZZA SINGOLA, MEZZOCHILO, CHILO
+    // POST
     @PostMapping
-    public ResponseEntity<String> addPizza(@RequestParam("pizza") String pizzaJson, @RequestParam("image") MultipartFile image) {
+    public ResponseEntity<String> addPizza(@RequestParam("pizza") String pizzaJson,
+                                           @RequestParam("image") MultipartFile image) {
         try {
-            // JSON della pizza convertito in un oggetto PizzaDTO
             ObjectMapper objectMapper = new ObjectMapper();
-            PizzaDTO pizzaDTO = objectMapper.readValue(pizzaJson, PizzaDTO.class);
+            PizzaDTO dto = objectMapper.readValue(pizzaJson, PizzaDTO.class);
 
-            List<String> toppingNames = pizzaDTO.getToppings();
-            double pizzaPrice = pizzaDTO.getPrice();
-            double mezzoChiloPrice = pizzaDTO.getMezzoChiloPrice();
-            double chiloPrice = pizzaDTO.getChiloPrice();
-
-            //SALVA L'IMMAGINE
             String imagePath = saveImage(image);
-            pizzaDTO.setImageUrl(imagePath);
+            dto.setImageUrl(imagePath);
 
-            // CREA UNA NUOVA PIZZA E COLLEGA L'IMMAGINE
-            Pizza newPizza = new Pizza(pizzaDTO.getName(), String.join(",", toppingNames), pizzaPrice, mezzoChiloPrice, chiloPrice, pizzaDTO.getImageUrl());
-            menuService.addPizza(newPizza);
+            Pizza pizza = new Pizza(
+                    dto.getName(),
+                    dto.getFormato(),
+                    dto.getPrice(),
+                    String.join(",", dto.getToppings()),
+                    imagePath
+            );
 
+            menuService.addPizza(pizza);
             return ResponseEntity.ok("Pizza aggiunta con successo! Immagine salvata in: " + imagePath);
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Errore: " + e.getMessage());
         }
     }
 
-    //SALVA L'IMMAGINE SUL SERVER
+    // DELETE
+    @DeleteMapping
+    public ResponseEntity<String> deletePizza(@RequestParam String name,
+                                              @RequestParam String formato) {
+        List<Pizza> pizzas = menuService.getPizzaList().stream()
+                .filter(pizza -> pizza.getName().equalsIgnoreCase(name) &&
+                        pizza.getFormato().equalsIgnoreCase(formato))
+                .collect(Collectors.toList());
+
+        if (pizzas.isEmpty()) {
+            return ResponseEntity.status(404).body("Pizza con nome '" + name + "' e formato '" + formato + "' non trovata.");
+        }
+
+        menuService.deletePizzaByNameAndFormato(name, formato);
+        return ResponseEntity.ok("Pizza '" + name + "' con formato '" + formato + "' eliminata con successo.");
+    }
+
+
+    @PutMapping
+    public ResponseEntity<String> updatePizza(@RequestParam String name,
+                                              @RequestParam String formato,
+                                              @RequestParam("pizza") String pizzaJson,
+                                              @RequestParam(value = "image", required = false) MultipartFile image) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            PizzaDTO dto = objectMapper.readValue(pizzaJson, PizzaDTO.class);
+
+            List<Pizza> pizzas = menuService.getPizzaList().stream()
+                    .filter(p -> p.getName().equalsIgnoreCase(name) &&
+                            p.getFormato().equalsIgnoreCase(formato))
+                    .collect(Collectors.toList());
+
+            if (pizzas.isEmpty()) {
+                return ResponseEntity.status(404).body("Pizza con nome '" + name + "' e formato '" + formato + "' non trovata.");
+            }
+
+            Pizza existingPizza = pizzas.get(0);
+
+            existingPizza.setName(dto.getName());
+            existingPizza.setFormato(dto.getFormato());
+            existingPizza.setPrice(dto.getPrice());
+            existingPizza.setToppingNames(String.join(",", dto.getToppings()));
+
+            if (image != null && !image.isEmpty()) {
+                String imagePath = saveImage(image);
+                existingPizza.setImageUrl(imagePath);
+            }
+
+            menuService.updatePizza(existingPizza);
+            return ResponseEntity.ok("Pizza aggiornata con successo.");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Errore: " + e.getMessage());
+        }
+    }
+
+    //SALVO L'IMMAGINE
     private String saveImage(MultipartFile image) throws IOException {
         String projectPath = System.getProperty("user.dir");
         String uploadsDir = projectPath + "/src/main/resources/static/images/";
@@ -118,59 +150,5 @@ public class PizzaController {
         image.transferTo(targetFile);
 
         return "/images/" + uniqueFileName;
-    }
-
-    // ELIMINAZIONE PIZZA TRAMITE NOME
-    @DeleteMapping
-    public ResponseEntity<String> deletePizzaByName(@RequestParam String name) {
-        List<Pizza> pizzas = menuService.getPizzaList().stream()
-                .filter(pizza -> pizza.getName().equalsIgnoreCase(name))
-                .collect(Collectors.toList());
-
-        if (pizzas.isEmpty()) {
-            return ResponseEntity.status(404).body("Pizza con nome " + name + " non trovata.");
-        }
-
-        // ELIMINARE TUTTE LE PIZZE COL SINGOLO NOME
-        menuService.deletePizzasByName(name);
-
-        return ResponseEntity.ok("Pizza con nome " + name + " eliminata con successo.");
-    }
-
-    //MODIFICA PIZZA RICERCATA PER NOME
-    @PutMapping
-    public ResponseEntity<String> updatePizza(@RequestParam String name, @RequestParam("pizza") String pizzaJson, @RequestParam(value = "image", required = false) MultipartFile image) {
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            PizzaDTO pizzaDTO = objectMapper.readValue(pizzaJson, PizzaDTO.class);
-
-            List<Pizza> pizzas = menuService.getPizzaList().stream()
-                    .filter(pizza -> pizza.getName().equalsIgnoreCase(name))
-                    .collect(Collectors.toList());
-
-            if (pizzas.isEmpty()) {
-                return ResponseEntity.status(404).body("Pizza con nome " + name + " non trovata.");
-            }
-
-            Pizza existingPizza = pizzas.get(0);
-
-            //AGGIORNARE DETTAGLI
-            existingPizza.setName(pizzaDTO.getName());
-            existingPizza.setToppingNames(String.join(",", pizzaDTO.getToppings()));
-            existingPizza.setPrice(pizzaDTO.getPrice());
-            existingPizza.setMezzoChiloPrice(pizzaDTO.getMezzoChiloPrice());
-            existingPizza.setChiloPrice(pizzaDTO.getChiloPrice());
-
-            if (image != null && !image.isEmpty()) {
-                String imagePath = saveImage(image);
-                existingPizza.setImageUrl(imagePath);
-            }
-
-            menuService.updatePizza(existingPizza);
-
-            return ResponseEntity.ok("Pizza con nome " + name + " aggiornata con successo.");
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body("Errore: " + e.getMessage());
-        }
     }
 }

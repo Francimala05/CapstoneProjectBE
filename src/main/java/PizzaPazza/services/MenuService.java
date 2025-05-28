@@ -74,13 +74,14 @@ public class MenuService {
         frittoRepository.save(fritto);
     }
 
-    //ELIMINA UNA PIZZA PER NOME
-    public void deletePizzasByName(String name) {
-        List<Pizza> pizzasToDelete = pizzaRepository.findByName(name);
-        if (pizzasToDelete != null && !pizzasToDelete.isEmpty()) {
-            pizzaRepository.deleteAll(pizzasToDelete);
+    //ELIMINA UNA PIZZA PER NOME E FORMATO
+    public void deletePizzaByNameAndFormato(String name, String formato) {
+        List<Pizza> pizzas = pizzaRepository.findByNameAndFormato(name, formato);
+        if (!pizzas.isEmpty()) {
+            pizzaRepository.deleteAll(pizzas);
         }
     }
+
 
     //AGGIORNA UNA SINGOLA PIZZA
     public void updatePizza(Pizza pizza) {

@@ -1,5 +1,6 @@
 package PizzaPazza.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -22,10 +23,12 @@ public class Drink{
 	//COLLEGO A ORDINEASPORTO E ORDINEDOMICILIO
 	@ManyToOne
 	@JoinColumn(name = "ordine_asporto_id")
+	@JsonBackReference
 	private OrdineAsporto ordineAsporto;
 
 	@ManyToOne
 	@JoinColumn(name = "ordine_domicilio_id")
+	@JsonBackReference
 	private OrdineDomicilio ordineDomicilio;
 
 
