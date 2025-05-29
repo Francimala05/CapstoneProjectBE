@@ -1,17 +1,15 @@
 package PizzaPazza.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
 
 @Setter
 @Getter
 @Entity
-@Table(name= "pizze")
-public class Pizza{
+@Table(name = "pizze")
+public class Pizza {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,32 +20,29 @@ public class Pizza{
 	@Column(name = "topping_name")
 	private String toppingNames;
 
+	private String formato;
+
 	private double price;
-	private double mezzoChiloPrice;
-	private double chiloPrice;
+
 	private String imageUrl;
 
-	//COLLEGO A ORDINEASPORTO E ORDINEDOMICILIO
 	@ManyToOne
 	@JoinColumn(name = "ordine_asporto_id")
+	@JsonBackReference
 	private OrdineAsporto ordineAsporto;
 
 	@ManyToOne
 	@JoinColumn(name = "ordine_domicilio_id")
+	@JsonBackReference
 	private OrdineDomicilio ordineDomicilio;
 
+	public Pizza() {}
 
-
-	public Pizza() {
-	}
-
-
-	public Pizza(String name, String toppingNames, double price, double mezzoChiloPrice, double chiloPrice, String imageUrl) {
+	public Pizza(String name, String formato, double price, String toppingNames, String imageUrl) {
 		this.name = name;
-		this.toppingNames = toppingNames;
+		this.formato = formato;
 		this.price = price;
-		this.mezzoChiloPrice = mezzoChiloPrice;
-		this.chiloPrice = chiloPrice;
+		this.toppingNames = toppingNames;
 		this.imageUrl = imageUrl;
 	}
 }

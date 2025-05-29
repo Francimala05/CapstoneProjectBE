@@ -38,6 +38,22 @@ public class DrinkController {
             return ResponseEntity.status(500).body("Errore: " + e.getMessage());
         }
     }
+    //MODIFICA UN DRINK
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateDrink(@PathVariable Long id, @RequestBody DrinkDTO drinkDTO) {
+        Drink existingDrink = menuService.getDrinkById(id);
+        if (existingDrink == null) {
+            return ResponseEntity.status(404).body("Drink con ID " + id + " non trovato.");
+        }
+
+        existingDrink.setName(drinkDTO.getName());
+        existingDrink.setFormato(drinkDTO.getFormato());
+        existingDrink.setPrice(drinkDTO.getPrice());
+
+        menuService.updateDrink(existingDrink);
+
+        return ResponseEntity.ok("Drink aggiornato con successo.");
+    }
 
     // ELIMINA UNA BIBITA
     @DeleteMapping

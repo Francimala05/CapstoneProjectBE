@@ -44,6 +44,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/api/ordini/domicilio/utente/**").permitAll()
                         .requestMatchers("/utente/auth/**").hasAuthority("USER")
                         .requestMatchers("/utente/admin/**").hasAuthority("ADMIN")
+                        .requestMatchers("/utente/propietario/**").hasAuthority("PROPIETARIO")
                         .requestMatchers("/images/**").permitAll()
                 )
                 .sessionManagement(session -> session

@@ -1,7 +1,6 @@
 package PizzaPazza.services;
 
-import PizzaPazza.DTO.OrdineAsportoDTO;
-import PizzaPazza.DTO.OrdineDomicilioDTO;
+import PizzaPazza.DTO.*;
 import PizzaPazza.PizzaPazzaSecurity.model.entities.Utente;
 import PizzaPazza.PizzaPazzaSecurity.repository.UtenteRepository;
 import PizzaPazza.entities.*;
@@ -13,6 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class OrdineDomicilioService {
@@ -55,11 +55,13 @@ public class OrdineDomicilioService {
 
     // CREAZIONE ORDINE
     public OrdineDomicilio creaOrdine(OrdineDomicilioDTO ordineRequest) {
-        List<Pizza> pizze = pizzaRepository.findAllById(ordineRequest.getPizzeIds());
-        List<Panuozzo> panuozzi = panuozzoRepository.findAllById(ordineRequest.getPanuozziIds());
-        List<Fritto> fritti = frittoRepository.findAllById(ordineRequest.getFrittiIds());
-        List<Drink> bibite = drinkRepository.findAllById(ordineRequest.getBibiteIds());
+        // Recupera le entità dai DTO (non più "Ids")
+        List<Pizza> pizze = pizzaRepository.findAllById(ordineRequest.getPizze().stream().map(PizzaDTO::getId).collect(Collectors.toList()));
+        List<Panuozzo> panuozzi = panuozzoRepository.findAllById(ordineRequest.getPanuozzi().stream().map(PanuozzoDTO::getId).collect(Collectors.toList()));
+        List<Fritto> fritti = frittoRepository.findAllById(ordineRequest.getFritti().stream().map(FrittoDTO::getId).collect(Collectors.toList()));
+        List<Drink> bibite = drinkRepository.findAllById(ordineRequest.getBibite().stream().map(DrinkDTO::getId).collect(Collectors.toList()));
 
+        // Imposta la data e l'orario di default, se non forniti
         if (ordineRequest.getData() == null) {
             ordineRequest.setData(LocalDate.now());
         }
@@ -74,11 +76,17 @@ public class OrdineDomicilioService {
         }
         Utente utente = utenteOptional.get();
 
-
+        // Crea l'ordine e salvalo nel database
         OrdineDomicilio ordine = new OrdineDomicilio(
                 pizze, panuozzi, fritti, bibite, ordineRequest.getOrario(), ordineRequest.getData(),
                 ordineRequest.getTelefono(), ordineRequest.getIndirizzo(), ordineRequest.getEsigenzeParticolari(), utente, ordineRequest.getConto()
         );
+
+        pizze.forEach(pizza -> pizza.setOrdineDomicilio(ordine));
+        panuozzi.forEach(panuozzo -> panuozzo.setOrdineDomicilio(ordine));
+        fritti.forEach(fritto -> fritto.setOrdineDomicilio(ordine));
+        bibite.forEach(drink -> drink.setOrdineDomicilio(ordine));
+
 
         // Salva l'ordine nel database
         return ordineRepository.save(ordine);

@@ -74,12 +74,16 @@ public class MenuService {
         frittoRepository.save(fritto);
     }
 
-    //ELIMINA UNA PIZZA PER NOME
-    public void deletePizzasByName(String name) {
-        List<Pizza> pizzasToDelete = pizzaRepository.findByName(name);
-        if (pizzasToDelete != null && !pizzasToDelete.isEmpty()) {
-            pizzaRepository.deleteAll(pizzasToDelete);
+    //ELIMINA UNA PIZZA PER NOME E FORMATO
+    public void deletePizzaByNameAndFormato(String name, String formato) {
+        List<Pizza> pizzas = pizzaRepository.findByNameAndFormato(name, formato);
+        if (!pizzas.isEmpty()) {
+            pizzaRepository.deleteAll(pizzas);
         }
+    }
+    //AGGIORNA UN SINGOL0 PANUOZZO
+    public void updatePanuozzo(Panuozzo panuozzo) {
+        panuozzoRepository.save(panuozzo);
     }
 
     //AGGIORNA UNA SINGOLA PIZZA
@@ -104,6 +108,22 @@ public class MenuService {
             return true;
         }
         return false;
+    }
+
+    public Fritto getFrittoById(Long id) {
+        return frittoRepository.findById(id).orElse(null);
+    }
+
+    public void updateFritto(Fritto fritto) {
+        frittoRepository.save(fritto);
+    }
+
+    public Drink getDrinkById(Long id) {
+        return drinkRepository.findById(id).orElse(null);
+    }
+
+    public void updateDrink(Drink drink) {
+        drinkRepository.save(drink);
     }
 
 

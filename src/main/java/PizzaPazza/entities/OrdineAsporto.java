@@ -20,16 +20,16 @@ public class OrdineAsporto {
     private Long id;
 
     //RELAZIONE ONETOMANY AI PRODOTTI
-    @OneToMany(mappedBy = "ordineAsporto")
+    @OneToMany(mappedBy = "ordineAsporto", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Pizza> pizze;
 
-    @OneToMany(mappedBy = "ordineAsporto")
+    @OneToMany(mappedBy = "ordineAsporto", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Panuozzo> panuozzi;
 
-    @OneToMany(mappedBy = "ordineAsporto")
+    @OneToMany(mappedBy = "ordineAsporto", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Fritto> fritti;
 
-    @OneToMany(mappedBy = "ordineAsporto")
+    @OneToMany(mappedBy = "ordineAsporto", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Drink> bibite;
 
     private LocalDate data;

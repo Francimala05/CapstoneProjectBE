@@ -2,7 +2,6 @@ package PizzaPazza.DTO;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.List;
 
 @Getter
@@ -10,9 +9,8 @@ import java.util.List;
 public class PizzaDTO {
     private Long id;
     private String name;
+    private String formato;
     private List<String> toppings;
     private double price;
-    private double mezzoChiloPrice;
-    private double chiloPrice;
     private String imageUrl;
 }

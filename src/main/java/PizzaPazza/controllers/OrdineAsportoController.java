@@ -19,7 +19,6 @@ public class OrdineAsportoController {
     @Autowired
     private OrdineAsportoService ordineAsportoService;
 
-
     @GetMapping
     public List<OrdineAsporto> getOrdiniAsporto() {
         return ordineAsportoService.getAllOrdini();
