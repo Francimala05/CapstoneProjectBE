@@ -1,7 +1,9 @@
 package PizzaPazza.controllers;
 
 import PizzaPazza.DTO.PanuozzoDTO;
+import PizzaPazza.DTO.PizzaDTO;
 import PizzaPazza.entities.Panuozzo;
+import PizzaPazza.entities.Pizza;
 import PizzaPazza.services.MenuService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,6 +88,44 @@ public class PanuozzoController {
             return ResponseEntity.status(500).body("Errore: " + e.getMessage());
         }
     }
+//MODIFICARE UN PANUOZZO
+    @PutMapping
+    public ResponseEntity<String> updatePanuozzo(@RequestParam String name,
+                                              @RequestParam String formato,
+                                              @RequestParam("panuozzo") String panuozzoJson,
+                                              @RequestParam(value = "image", required = false) MultipartFile image) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            PanuozzoDTO dto = objectMapper.readValue(panuozzoJson, PanuozzoDTO.class);
+
+            List<Panuozzo> panuozzos = menuService.getPanuozzoList().stream()
+                    .filter(p -> p.getName().equalsIgnoreCase(name) &&
+                            p.getFormato().equalsIgnoreCase(formato))
+                    .collect(Collectors.toList());
+
+            if (panuozzos.isEmpty()) {
+                return ResponseEntity.status(404).body("Panuozzo con nome '" + name + "' e formato '" + formato + "' non trovata.");
+            }
+
+            Panuozzo existingPanuozzo = panuozzos.get(0);
+
+            existingPanuozzo.setName(dto.getName());
+            existingPanuozzo.setFormato(dto.getFormato());
+            existingPanuozzo.setPrice(dto.getPrice());
+            existingPanuozzo.setToppingNames(String.join(",", dto.getToppings()));
+
+            if (image != null && !image.isEmpty()) {
+                String imagePath = saveImage(image);
+                existingPanuozzo.setImageUrl(imagePath);
+            }
+
+            menuService.updatePanuozzo(existingPanuozzo);
+            return ResponseEntity.ok("Panuozzo aggiornato con successo.");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Errore: " + e.getMessage());
+        }
+    }
+
 
     // SALVA L’IMMAGINE DEL PANUOZZO
     private String saveImage(MultipartFile image) throws IOException {

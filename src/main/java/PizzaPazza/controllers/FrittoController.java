@@ -33,4 +33,21 @@ public class FrittoController {
             return ResponseEntity.status(500).body("Errore: " + e.getMessage());
         }
     }
+    //MODIFICA UN FRITTO
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateFritto(@PathVariable Long id, @RequestBody FrittoDTO frittoDTO) {
+        Fritto existingFritto = menuService.getFrittoById(id);
+        if (existingFritto == null) {
+            return ResponseEntity.status(404).body("Fritto con ID " + id + " non trovato.");
+        }
+
+        existingFritto.setName(frittoDTO.getName());
+        existingFritto.setPrice(frittoDTO.getPrice());
+
+        menuService.updateFritto(existingFritto);
+
+        return ResponseEntity.ok("Fritto aggiornato con successo.");
+    }
+
+
 }

@@ -81,7 +81,10 @@ public class MenuService {
             pizzaRepository.deleteAll(pizzas);
         }
     }
-
+    //AGGIORNA UN SINGOL0 PANUOZZO
+    public void updatePanuozzo(Panuozzo panuozzo) {
+        panuozzoRepository.save(panuozzo);
+    }
 
     //AGGIORNA UNA SINGOLA PIZZA
     public void updatePizza(Pizza pizza) {
@@ -105,6 +108,22 @@ public class MenuService {
             return true;
         }
         return false;
+    }
+
+    public Fritto getFrittoById(Long id) {
+        return frittoRepository.findById(id).orElse(null);
+    }
+
+    public void updateFritto(Fritto fritto) {
+        frittoRepository.save(fritto);
+    }
+
+    public Drink getDrinkById(Long id) {
+        return drinkRepository.findById(id).orElse(null);
+    }
+
+    public void updateDrink(Drink drink) {
+        drinkRepository.save(drink);
     }
 
 

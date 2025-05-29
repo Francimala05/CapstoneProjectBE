@@ -4,34 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="28/03 1.05&#10;Inclusione immagini">
+    <list default="true" id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="28/05 11.30&#10;Sistemazione Ordini anche da FE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/DrinkDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/DrinkDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/FrittoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/FrittoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/OrdineAsportoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/OrdineAsportoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/OrdineDomicilioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/OrdineDomicilioDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/PanuozzoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/PanuozzoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/PizzaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/DTO/PizzaDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/OrdineAsportoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/OrdineAsportoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/Ruolo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/Ruolo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/controller/UtenteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/controller/UtenteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/security/CustomCorsConfigurationSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/security/CustomCorsConfigurationSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/security/CustomDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/security/CustomDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/service/UtenteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/PizzaPazzaSecurity/service/UtenteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/DrinkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/DrinkController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/FrittoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/FrittoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/PanuozzoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/PanuozzoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/PizzaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/controllers/PizzaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Drink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Drink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Fritto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Fritto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/OrdineAsporto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/OrdineAsporto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Panuozzo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Panuozzo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/entities/Pizza.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/repositories/PizzaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/repositories/PizzaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/MenuService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/OrdineAsportoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/OrdineAsportoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/OrdineDomicilioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/OrdineDomicilioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/DTO/DrinkDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/DTO/DrinkDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/DTO/FrittoDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/DTO/FrittoDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/DTO/OrdineAsportoDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/DTO/OrdineAsportoDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/DTO/OrdineDomicilioDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/DTO/OrdineDomicilioDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/OrdineAsportoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/OrdineAsportoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Pizza.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Pizza.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/services/OrdineAsportoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/services/OrdineAsportoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/services/OrdineDomicilioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/services/OrdineDomicilioService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/DTO/PanuozzoDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/DTO/PanuozzoDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/DTO/PizzaDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/DTO/PizzaDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/Ruolo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/Ruolo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/controller/UtenteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/controller/UtenteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/security/CustomCorsConfigurationSource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/security/CustomCorsConfigurationSource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/security/CustomDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/security/CustomDetailsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/security/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/security/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/service/UtenteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/PizzaPazzaSecurity/service/UtenteService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/PanuozzoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/PanuozzoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/PizzaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/PizzaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Drink.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Drink.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Fritto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Fritto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/OrdineAsporto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/OrdineAsporto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Panuozzo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/entities/Panuozzo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/repositories/PizzaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/repositories/PizzaRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/services/MenuService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/services/MenuService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743119307096</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="28/05 11.30&#10;Sistemazione Ordini anche da FE">
+      <option name="closed" value="true" />
+      <created>1748425451779</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1748425451779</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -307,6 +315,7 @@
     <MESSAGE value="26/03 20.00&#10;Sistemazione Profilo 2 funzionamento ottimale login/registrazione" />
     <MESSAGE value="28/03 1.00&#10;Commenti e Sistemazione finale" />
     <MESSAGE value="28/03 1.05&#10;Inclusione immagini" />
-    <option name="LAST_COMMIT_MESSAGE" value="28/03 1.05&#10;Inclusione immagini" />
+    <MESSAGE value="28/05 11.30&#10;Sistemazione Ordini anche da FE" />
+    <option name="LAST_COMMIT_MESSAGE" value="28/05 11.30&#10;Sistemazione Ordini anche da FE" />
   </component>
 </project>

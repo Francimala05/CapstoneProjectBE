@@ -58,19 +58,44 @@ public class UtenteService {
         // Verifica duplicati
         checkDuplicateKeys(dto.getUsername(), dto.getEmail());
 
-        if (dto.getRuolo() == null) {
-            dto.setRuolo("USER");
+        // Imposta ruolo di default
+        Ruolo ruoloUtente;
+        try {
+            ruoloUtente = dto.getRuolo() != null ? Ruolo.valueOf(dto.getRuolo().toUpperCase()) : Ruolo.USER;
+        } catch (IllegalArgumentException e) {
+            throw new RuoloException("Ruolo non valido.");
         }
 
-        // Travaso
-        Utente user = dtoToEntity(dto);
-        String pwdEncoded = passwordEncoder.encode(dto.getPassword());
-        user.setPassword(pwdEncoded);
+        // Blocco la possibilità di creare utenti con ruoli privilegiati
+        if (ruoloUtente == Ruolo.ADMIN || ruoloUtente == Ruolo.PROPRIETARIO) {
+            throw new RuoloException("Non puoi creare un utente con ruolo " + ruoloUtente);
+        }
 
-        // Salvataggio dell'utente nel DB
+        // Preparazione entità
+        Utente user = dtoToEntity(dto);
+        user.setRuolo(ruoloUtente);
+        user.setPassword(passwordEncoder.encode(dto.getPassword()));
+
         return utenteRepository.save(user);
     }
+//CREA UTENTE CON RUOLO
+    public Utente creaUtenteConRuolo(UtenteDTO dto) throws DuplicateEmailException, DuplicateUsernameException, RuoloException {
+        checkDuplicateKeys(dto.getUsername(), dto.getEmail());
 
+        Ruolo ruoloUtente;
+        try {
+            ruoloUtente = Ruolo.valueOf(dto.getRuolo().toUpperCase());
+        } catch (IllegalArgumentException e) {
+            throw new RuoloException("Ruolo non valido.");
+        }
+
+        // Crea utente con qualsiasi ruolo (solo se chiama questo endpoint un admin)
+        Utente user = dtoToEntity(dto);
+        user.setRuolo(ruoloUtente);
+        user.setPassword(passwordEncoder.encode(dto.getPassword()));
+
+        return utenteRepository.save(user);
+    }
 
 
     //LOGIN
@@ -105,7 +130,7 @@ public class UtenteService {
         user.setNome(dto.getNome());
         user.setCognome(dto.getCognome());
         user.setEmail(dto.getEmail());
-        user.setRuolo(Ruolo.valueOf(dto.getRuolo()));
+
         user.setUsername(dto.getUsername());
         user.setPassword(dto.getPassword());
 

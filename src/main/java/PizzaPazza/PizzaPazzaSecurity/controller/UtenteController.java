@@ -93,6 +93,24 @@ public class UtenteController {
             return new ResponseEntity<>("Utente non trovato", HttpStatus.NOT_FOUND);
         }
     }
+    @PostMapping("/admin/create")
+    public ResponseEntity<UtenteResponse> creaUtenteConRuolo(@RequestBody UtenteDTO dto) {
+        try {
+            Utente nuovo = service.creaUtenteConRuolo(dto);
+            String token = jwtUtil.creaToken(nuovo);
+
+            return ResponseEntity.ok(new UtenteResponse(
+                    "Utente " + nuovo.getUsername() + " creato con ruolo " + nuovo.getRuolo(),
+                    nuovo.getIdUtente(),
+                    nuovo.getUsername(),
+                    token
+            ));
+        } catch (DuplicateUsernameException | DuplicateEmailException e) {
+            return ResponseEntity.status(409).body(new UtenteResponse(e.getMessage(), null, null, null));
+        } catch (RuoloException e) {
+            return ResponseEntity.status(400).body(new UtenteResponse(e.getMessage(), null, null, null));
+        }
+    }
 
 
 }
