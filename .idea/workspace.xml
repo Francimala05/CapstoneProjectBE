@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="29/05 15.00&#10;Gestione Propietario Aggiunta">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/PrenotazioneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PizzaPazza/services/PrenotazioneService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/DrinkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/DrinkController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/FrittoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PizzaPazza/controllers/FrittoController.class" afterDir="false" />
-    </list>
+    <list default="true" id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="29/05 15.00&#10;Gestione Propietario Aggiunta 2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -268,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748523599024</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="29/05 15.00&#10;Gestione Propietario Aggiunta 2">
+      <option name="closed" value="true" />
+      <created>1748534933541</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1748534933541</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -302,6 +305,7 @@
     <MESSAGE value="28/03 1.05&#10;Inclusione immagini" />
     <MESSAGE value="28/05 11.30&#10;Sistemazione Ordini anche da FE" />
     <MESSAGE value="29/05 15.00&#10;Gestione Propietario Aggiunta" />
-    <option name="LAST_COMMIT_MESSAGE" value="29/05 15.00&#10;Gestione Propietario Aggiunta" />
+    <MESSAGE value="29/05 15.00&#10;Gestione Propietario Aggiunta 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="29/05 15.00&#10;Gestione Propietario Aggiunta 2" />
   </component>
 </project>
