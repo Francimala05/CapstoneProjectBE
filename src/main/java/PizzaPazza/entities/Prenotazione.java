@@ -14,8 +14,6 @@ import java.time.LocalTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 public class Prenotazione {
 
 	@Id

@@ -10,7 +10,8 @@ public class CustomCorsConfigurationSource {
     @Bean
     public UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfig = new CorsConfiguration();
-        corsConfig.addAllowedOrigin("http://localhost:8080");
+        corsConfig.addAllowedOrigin("https://tuo-sito-frontend.vercel.app");
+        corsConfig.addAllowedOrigin("http://localhost:3000");
         corsConfig.addAllowedMethod("*");
         corsConfig.addAllowedMethod("*");
         corsConfig.addAllowedHeader("*");
