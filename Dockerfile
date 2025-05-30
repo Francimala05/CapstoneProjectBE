@@ -1,22 +1,32 @@
-# Fase 1: Costruzione del progetto
+# Stage 1: build dell'app
 FROM eclipse-temurin:17-jdk AS build
 
 WORKDIR /app
-COPY . .
 
-# Rende mvnw eseguibile (se non lo è già)
+# Copia i file necessari per Maven wrapper
+COPY mvnw .
+COPY .mvn .mvn
+
+# Copia il resto del progetto
+COPY pom.xml .
+COPY src src
+
+# Rendi eseguibile lo script mvnw
 RUN chmod +x mvnw
 
-# Costruisce l'app Spring Boot (senza eseguire i test)
+# Builda il progetto senza test
 RUN ./mvnw clean package -DskipTests
 
-# Fase 2: Immagine finale più leggera
+# Stage 2: immagine finale più leggera
 FROM eclipse-temurin:17-jre
 
 WORKDIR /app
 
-# Copia solo il file JAR dalla build precedente
+# Copia il jar dal build
 COPY --from=build /app/target/*.jar app.jar
 
-# Avvia l'applicazione Spring Boot
-CMD ["java", "-jar", "app.jar"]
+# Esponi la porta (opzionale ma consigliato)
+EXPOSE 8080
+
+# Comando per partire
+ENTRYPOINT ["java", "-jar", "app.jar"]
