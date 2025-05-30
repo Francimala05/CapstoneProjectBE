@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: PizzaPazza.PizzaPazzaApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.571 s - in PizzaPazza.PizzaPazzaApplicationTests
