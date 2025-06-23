@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="29/05 15.00&#10;Main">
+    <list default="true" id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="22/06 000&#10;Main prop">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,7 +284,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750552307625</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="22/06 000&#10;Main prop">
+      <option name="closed" value="true" />
+      <created>1750553428396</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1750553428404</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -317,6 +328,7 @@
     <MESSAGE value="29/05 15.00&#10;Gestione Propietario Aggiunta" />
     <MESSAGE value="29/05 15.00&#10;Gestione Propietario Aggiunta 2" />
     <MESSAGE value="29/05 15.00&#10;Main" />
-    <option name="LAST_COMMIT_MESSAGE" value="29/05 15.00&#10;Main" />
+    <MESSAGE value="22/06 000&#10;Main prop" />
+    <option name="LAST_COMMIT_MESSAGE" value="22/06 000&#10;Main prop" />
   </component>
 </project>
