@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="23/06 9.00&#10;Main prop" />
+    <list default="true" id="75737e36-69cf-4a22-baa2-73b72b98f648" name="Changes" comment="23/06 9.00&#10;Eseguibile">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,28 +66,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.PizzaPazzaApplication.executor": "Run",
-    "Application.PizzeriaApplication.executor": "Run",
-    "JUnit.PizzaPazzaApplicationTests.executor": "Run",
-    "JUnit.PizzaPazzaTests.executor": "Run",
-    "Maven.PizzaPazza [clean,-DforkCount=0...].executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Hp/Desktop/Build Week/BW5/BuildWeekFinal-BE-EpicEnergyServices",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.PizzaPazzaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PizzeriaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PizzaPazzaApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PizzaPazzaTests.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.PizzaPazza [clean,-DforkCount=0...].executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Hp/Desktop/Build Week/BW5/BuildWeekFinal-BE-EpicEnergyServices&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Hp\Documents\GitHub\CapstoneProjectBE\pizzeria\pizzeria\src\main\java\com\PizzaPazza" />
@@ -295,7 +300,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750663672188</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="23/06 9.00&#10;Eseguibile">
+      <option name="closed" value="true" />
+      <created>1750664218001</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1750664218001</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -333,6 +346,7 @@
     <MESSAGE value="29/05 15.00&#10;Main" />
     <MESSAGE value="22/06 000&#10;Main prop" />
     <MESSAGE value="23/06 9.00&#10;Main prop" />
-    <option name="LAST_COMMIT_MESSAGE" value="23/06 9.00&#10;Main prop" />
+    <MESSAGE value="23/06 9.00&#10;Eseguibile" />
+    <option name="LAST_COMMIT_MESSAGE" value="23/06 9.00&#10;Eseguibile" />
   </component>
 </project>
