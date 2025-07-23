@@ -7,6 +7,7 @@ import PizzaPazza.entities.Pizza;
 import PizzaPazza.services.MenuService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,7 +22,8 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/panuozzi")
 public class PanuozzoController {
-
+    @Value("${DEVELOPMENT_URL}")
+    private String development_url;
     @Autowired
     private MenuService menuService;
 
@@ -50,7 +52,7 @@ public class PanuozzoController {
             if (!imageUrl.startsWith("/images/")) {
                 imageUrl = "/images/" + imageUrl;
             }
-            panuozzoDTO.setImageUrl("http://localhost:8085" + imageUrl);
+            panuozzoDTO.setImageUrl(development_url + imageUrl);
 
             panuozzoDTOs.add(panuozzoDTO);
         }

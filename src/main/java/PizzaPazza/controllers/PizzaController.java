@@ -1,3 +1,4 @@
+
 package PizzaPazza.controllers;
 
 import PizzaPazza.DTO.PizzaDTO;
@@ -5,6 +6,7 @@ import PizzaPazza.entities.Pizza;
 import PizzaPazza.services.MenuService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -19,7 +21,8 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/pizzas")
 public class PizzaController {
-
+@Value("${DEVELOPMENT_URL}")
+private String development_url;
     @Autowired
     private MenuService menuService;
 
@@ -47,7 +50,7 @@ public class PizzaController {
             if (!imageUrl.startsWith("/images/")) {
                 imageUrl = "/images/" + imageUrl;
             }
-            dto.setImageUrl("http://localhost:8085" + imageUrl);
+            dto.setImageUrl(development_url + imageUrl);
 
             pizzaDTOs.add(dto);
         }
